@@ -7,7 +7,6 @@ package logica;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import javax.swing.JOptionPane;
 
 
 /**
@@ -27,9 +26,9 @@ public class MariaDb {
             try{
                 Class.forName("com.mysql.cj.jdbc.Driver");
                 cnx = (Connection) DriverManager.getConnection(URL, USER, CLAVE);
+                System.out.println("Conectado...");  
             }catch(ClassNotFoundException | SQLException e){
-                JOptionPane.showMessageDialog(null, e.getMessage());
-                //System.out.println("Error: " + e.getMessage());
+                System.out.println("Error: " + e.getMessage());
             }
         }
         return cnx;
@@ -41,8 +40,7 @@ public class MariaDb {
             try{
                 cnx.close();
             }catch(SQLException e){
-                JOptionPane.showMessageDialog(null, e.getMessage());
-                //System.out.println("Error: " + e.getMessage());  
+                System.out.println("Error: " + e.getMessage());  
             }
             
         }

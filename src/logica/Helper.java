@@ -8,21 +8,12 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import javax.swing.JOptionPane;
 
 /**
  *
  * @author Jonathan
  */
 public class Helper {
-
-
-
-/**
- *
- * @author Jonathan
- */
-public class DataBase {
     
     
     public static ResultSet select(String sql){
@@ -35,11 +26,9 @@ public class DataBase {
             
         }catch(SQLException e){
             
-            JOptionPane.showMessageDialog(null, e.getMessage());
+            System.out.println("Error: " + e.getMessage());
         }
         return res;
     }
     
-}
-
 }

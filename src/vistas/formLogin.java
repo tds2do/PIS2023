@@ -36,8 +36,10 @@ public class formLogin extends javax.swing.JFrame {
         txtPassword = new javax.swing.JPasswordField();
         btnLogin = new javax.swing.JButton();
         labCopy = new javax.swing.JLabel();
+        labUsuario1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panLogin.setBackground(new java.awt.Color(102, 204, 255));
 
@@ -56,21 +58,27 @@ public class formLogin extends javax.swing.JFrame {
 
         labIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-caja-llena-white/icons8-caja-llena-96.png"))); // NOI18N
 
-        labUsuario.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        labUsuario.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        labUsuario.setForeground(new java.awt.Color(255, 255, 255));
         labUsuario.setText("Usuario:");
 
-        labPassword.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        labPassword.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        labPassword.setForeground(new java.awt.Color(255, 255, 255));
         labPassword.setText("Contraseña:");
 
-        txtUsuario.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        txtUsuario.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         txtUsuario.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
-        txtPassword.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        txtPassword.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         txtPassword.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         btnLogin.setBackground(new java.awt.Color(255, 213, 77));
         btnLogin.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        btnLogin.setText("Login");
+        btnLogin.setForeground(new java.awt.Color(255, 255, 255));
+        btnLogin.setText("Entrar");
+        btnLogin.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btnLogin.setMargin(new java.awt.Insets(7, 14, 7, 14));
+        btnLogin.setMaximumSize(new java.awt.Dimension(48, 28));
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLoginActionPerformed(evt);
@@ -81,6 +89,10 @@ public class formLogin extends javax.swing.JFrame {
         labCopy.setForeground(new java.awt.Color(255, 255, 255));
         labCopy.setText("Todos los derechos 2do TDS A @ 2023.");
 
+        labUsuario1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        labUsuario1.setForeground(new java.awt.Color(255, 255, 255));
+        labUsuario1.setText("Iniciar Sesión");
+
         javax.swing.GroupLayout panLoginLayout = new javax.swing.GroupLayout(panLogin);
         panLogin.setLayout(panLoginLayout);
         panLoginLayout.setHorizontalGroup(
@@ -89,25 +101,29 @@ public class formLogin extends javax.swing.JFrame {
                 .addComponent(panLoginLeft, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(panLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panLoginLayout.createSequentialGroup()
-                        .addGap(35, 35, 35)
+                        .addGap(119, 119, 119)
                         .addGroup(panLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labPassword)
-                            .addComponent(labUsuario))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
-                        .addGroup(panLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panLoginLayout.createSequentialGroup()
-                                .addComponent(labIcon)
-                                .addGap(134, 134, 134))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panLoginLayout.createSequentialGroup()
-                                .addGroup(panLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtUsuario, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(txtPassword, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE))
-                                .addGap(32, 32, 32))))
+                            .addComponent(labUsuario1)
+                            .addComponent(labIcon))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panLoginLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(labCopy)
-                        .addGap(57, 57, 57))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                        .addGroup(panLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panLoginLayout.createSequentialGroup()
+                                .addGroup(panLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(labUsuario)
+                                    .addComponent(labPassword))
+                                .addGap(32, 32, 32)
+                                .addGroup(panLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(30, 30, 30))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panLoginLayout.createSequentialGroup()
+                                .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(98, 98, 98))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panLoginLayout.createSequentialGroup()
+                                .addComponent(labCopy)
+                                .addGap(41, 41, 41))))))
         );
         panLoginLayout.setVerticalGroup(
             panLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -115,35 +131,28 @@ public class formLogin extends javax.swing.JFrame {
                 .addComponent(panLoginLeft, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(panLoginLayout.createSequentialGroup()
-                .addGap(92, 92, 92)
+                .addGap(59, 59, 59)
                 .addComponent(labIcon)
-                .addGap(50, 50, 50)
+                .addGap(31, 31, 31)
+                .addComponent(labUsuario1)
+                .addGap(30, 30, 30)
                 .addGroup(panLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labUsuario)
-                    .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(48, 48, 48)
+                    .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labUsuario))
+                .addGap(31, 31, 31)
                 .addGroup(panLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labPassword)
-                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(49, 49, 49)
-                .addComponent(btnLogin)
+                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labPassword))
+                .addGap(42, 42, 42)
+                .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(labCopy)
-                .addGap(26, 26, 26))
+                .addContainerGap())
         );
 
         labIcon.getAccessibleContext().setAccessibleName("labIcon");
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
+        getContentPane().add(panLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -196,6 +205,7 @@ public class formLogin extends javax.swing.JFrame {
     private javax.swing.JLabel labIcon;
     private javax.swing.JLabel labPassword;
     private javax.swing.JLabel labUsuario;
+    private javax.swing.JLabel labUsuario1;
     private javax.swing.JPanel panLogin;
     private javax.swing.JPanel panLoginLeft;
     private javax.swing.JPasswordField txtPassword;

@@ -4,6 +4,8 @@
  */
 package vistas;
 
+import javax.swing.JOptionPane;
+import logica.Hash;
 import logica.MariaDb;
 
 /**
@@ -161,7 +163,13 @@ public class formLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        // TODO add your handling code here:
+        
+        String usuario = txtUsuario.getText();
+        String password = String.valueOf(txtPassword.getPassword());
+        Hash hs = new Hash(password);
+        
+        
+        JOptionPane.showMessageDialog(null, "Password: " + hs.generate());
         this.setVisible(false);
         formDashboard dashboard = new formDashboard();
         dashboard.setVisible(true);

@@ -6,7 +6,6 @@ package logica;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.zip.Checksum;
 
 /**
  *

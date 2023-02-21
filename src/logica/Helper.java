@@ -21,8 +21,8 @@ public class Helper {
         
         try{
             Connection cnx = MariaDb.conectar();
-            Statement query = cnx.createStatement();
-            res = query.executeQuery(sql);
+            Statement stm = cnx.createStatement();
+            res = stm.executeQuery(sql);
             
         }catch(SQLException e){
             
@@ -30,5 +30,23 @@ public class Helper {
         }
         return res;
     }
+    
+    
+    public static Boolean insert(String sql){
+        Boolean res = false;
+        
+        try{
+            Connection cnx = MariaDb.conectar();
+            Statement stm = cnx.createStatement();
+            stm.executeUpdate(sql);
+            
+        }catch(SQLException e){
+            
+            System.out.println("Error: " + e.getMessage());
+        }
+        return res;
+    }
+    
+    
     
 }

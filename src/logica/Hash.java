@@ -21,8 +21,8 @@ public class Hash {
     
     public String generate(){
         String hash = "";
-        byte[] digest = null;
-        byte[] buffer =this.texto.getBytes();
+        byte[] digest;
+        byte[] buffer = this.texto.getBytes();
         
         try{
             // Instancio objeto con el algoritmo de seguridad SHA-256
@@ -37,6 +37,7 @@ public class Hash {
             hash = getHexadecimal(digest);
         }catch(NoSuchAlgorithmException e){
             e.printStackTrace();
+            //System.out.println("Error: " + e.getMessage());
         }
         return hash;
     }

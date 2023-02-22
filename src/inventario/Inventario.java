@@ -4,7 +4,7 @@
  */
 package inventario;
 
-import vistas.formLogin;
+import vista.formLogin;
 
 /**
  *

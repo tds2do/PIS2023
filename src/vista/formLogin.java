@@ -5,8 +5,8 @@
 package vista;
 
 import javax.swing.JOptionPane;
-import logica.DAOUsuario;
-import logica.Usuario;
+import Modelo.DAOUsuario;
+import Modelo.Usuario;
 
 /**
  *

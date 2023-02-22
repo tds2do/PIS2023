@@ -2,11 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package vistas;
+package vista;
 
 import javax.swing.JOptionPane;
-import logica.Hash;
-import logica.MariaDb;
+import logica.DAOUsuario;
+import logica.Usuario;
 
 /**
  *
@@ -164,16 +164,28 @@ public class formLogin extends javax.swing.JFrame {
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         
-        String usuario = txtUsuario.getText();
         String password = String.valueOf(txtPassword.getPassword());
-        Hash hs = new Hash(password);
+        Usuario user = new Usuario();
+        DAOUsuario acc = new DAOUsuario();
         
-        
-        JOptionPane.showMessageDialog(null, "Password: " + hs.generate());
-        this.setVisible(false);
-        formDashboard dashboard = new formDashboard();
-        dashboard.setVisible(true);
-        MariaDb.conectar();
+        if(!txtUsuario.getText().equals("") && !password.equals("")){
+            
+            user.setUsername(txtUsuario.getText());
+            user.setPassword(password);
+            
+            if(acc.login(user)){
+                //this.setVisible(false);
+                this.dispose();
+                formDashboard dashboard = new formDashboard();
+                dashboard.setVisible(true);
+            }else{
+                JOptionPane.showMessageDialog(null, "Usuario y/o contraseña incorrectos.");
+            }
+            
+        }else{
+            JOptionPane.showMessageDialog(null, "Usuario y/o contraseña incorrectos.");
+        }
+
     }//GEN-LAST:event_btnLoginActionPerformed
 
     /**

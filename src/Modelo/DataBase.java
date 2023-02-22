@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package logica;
+package Modelo;
 
 
 import java.sql.Connection;
@@ -75,7 +75,9 @@ public class DataBase{
         try{
             Connection cnx = conectar();
             Statement stm = cnx.createStatement();
-            return stm.executeUpdate(sql);
+            int result = stm.executeUpdate(sql);
+            desconectar();
+            return result; 
             
         }catch(SQLException e){
             e.printStackTrace();

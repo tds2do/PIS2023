@@ -2,8 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Modelo;
+package DAO;
 
+import Modelo.DataBase;
+import Modelo.Hash;
+import Modelo.Usuario;
 import java.util.HashMap;
 import java.util.List;
 
@@ -12,7 +15,7 @@ import java.util.List;
  *
  * @author Jonathan
  */
-public class DAOUsuario {
+public class UsuarioDAO {
     
     DataBase bd = new DataBase();
     

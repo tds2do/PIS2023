@@ -75,7 +75,9 @@ public class DataBase{
         try{
             Connection cnx = conectar();
             Statement stm = cnx.createStatement();
-            return stm.executeUpdate(sql);
+            int result = stm.executeUpdate(sql);
+            desconectar();
+            return result; 
             
         }catch(SQLException e){
             e.printStackTrace();

@@ -94,9 +94,6 @@ public class Usuario extends RegistroAuditoria{
     public void setSegundoApellido(String segundoApellido) {
         this.segundoApellido = segundoApellido;
     }
-
-    
-    
     
     public String getCargo() {
         return cargo;

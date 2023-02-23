@@ -71,7 +71,7 @@ public class MedidaDAO implements IMedida{
 
     @Override
     public List<Medida> consultar() {
-        String sql = "SELECT * FROM Categoria";
+        String sql = "SELECT * FROM Categoria WHERE estado = 1";
         List rows = bd.execute(sql);
         return rows;
     }

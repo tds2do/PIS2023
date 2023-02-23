@@ -90,7 +90,7 @@ public class ProveedorDAO implements IProveedor{
     @Override
     public List<Proveedor> consultar() {
         
-        String sql = "SELECT * FROM Proveedor";
+        String sql = "SELECT * FROM Proveedor WHERE estado = 1";
         List rows = bd.execute(sql);
         return rows;
         

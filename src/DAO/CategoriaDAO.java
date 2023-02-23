@@ -73,7 +73,7 @@ public class CategoriaDAO implements ICategoria{
 
     @Override
     public List<Categoria> consultar() {
-        String sql = "SELECT * FROM Categoria";
+        String sql = "SELECT * FROM Categoria WHERE estado = 1";
         List rows = bd.execute(sql);
         return rows;
     }

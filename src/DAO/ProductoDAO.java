@@ -87,7 +87,7 @@ public class ProductoDAO implements IProducto{
     @Override
     public List<Producto> consultar() {
         
-        String sql = "SELECT * FROM Producto";
+        String sql = "SELECT * FROM Producto WHERE estado = 1";
         List rows = bd.execute(sql);
         return rows;
         

@@ -91,7 +91,7 @@ public class ClienteDAO implements ICliente{
     @Override
     public List<Cliente> consultar() {
         
-        String sql = "SELECT * FROM Cliente";
+        String sql = "SELECT * FROM Cliente WHERE estado = 1";
         List rows = bd.execute(sql);
         return rows;
         

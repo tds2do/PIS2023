@@ -5,7 +5,7 @@
 package vista;
 
 import javax.swing.JOptionPane;
-import Modelo.DAOUsuario;
+import DAO.UsuarioDAO;
 import Modelo.Usuario;
 
 /**
@@ -166,7 +166,7 @@ public class formLogin extends javax.swing.JFrame {
         
         String password = String.valueOf(txtPassword.getPassword());
         Usuario user = new Usuario();
-        DAOUsuario acc = new DAOUsuario();
+        UsuarioDAO acc = new UsuarioDAO();
         
         if(!txtUsuario.getText().equals("") && !password.equals("")){
             

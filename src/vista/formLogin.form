@@ -136,7 +136,7 @@
         <Component class="javax.swing.JLabel" name="labIcon">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/imagenes/icons8-caja-llena-white/icons8-caja-llena-96.png"/>
+              <Image iconType="3" name="/images/icons/caja-llena/white/caja-llena-96.png"/>
             </Property>
           </Properties>
           <AccessibilityProperties>

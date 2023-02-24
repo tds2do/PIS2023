@@ -5,7 +5,7 @@
 package vista;
 
 import javax.swing.JOptionPane;
-import Modelo.DAOUsuario;
+import DAO.UsuarioDAO;
 import Modelo.Usuario;
 
 /**
@@ -60,7 +60,7 @@ public class formLogin extends javax.swing.JFrame {
             .addGap(0, 460, Short.MAX_VALUE)
         );
 
-        labIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-caja-llena-white/icons8-caja-llena-96.png"))); // NOI18N
+        labIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons/caja-llena/white/caja-llena-96.png"))); // NOI18N
 
         labUsuario.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         labUsuario.setForeground(new java.awt.Color(255, 255, 255));
@@ -166,7 +166,7 @@ public class formLogin extends javax.swing.JFrame {
         
         String password = String.valueOf(txtPassword.getPassword());
         Usuario user = new Usuario();
-        DAOUsuario acc = new DAOUsuario();
+        UsuarioDAO acc = new UsuarioDAO();
         
         if(!txtUsuario.getText().equals("") && !password.equals("")){
             

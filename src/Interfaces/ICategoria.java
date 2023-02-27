@@ -15,5 +15,6 @@ public interface ICategoria {
     public Boolean registrar(Categoria categoria);
     public Boolean modificar(Categoria categoria);
     public Boolean eliminar(Categoria categoria);
-    public List<Categoria> consultar();
+    public List<Categoria> listar();
+    public Categoria leer(int idCategoria);
 }

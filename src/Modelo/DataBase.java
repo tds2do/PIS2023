@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
+import java.sql.CallableStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -104,6 +105,21 @@ public class DataBase{
         }
         
         return datos;
+    }
+    
+    
+    public boolean excuteProcedure(String nombre){
+        
+        try{
+            // Ejecutar procedimiento almacenado (Store Procedure)
+            CallableStatement cs = cnx.prepareCall("{call "+nombre+"}");
+            return cs.execute();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    
+        return false;
+        
     }
     
 }

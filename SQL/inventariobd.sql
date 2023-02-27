@@ -253,9 +253,9 @@ Foreign Key(idRol) References Rol(idRol)
 CREATE TABLE Permiso
 (
 idPermiso int not null AUTO_INCREMENT,
-nombre varchar (10) not null,
-descripcion varchar (15) not null,
-abreviatura varchar (3) not null,
+nombre varchar (40) not null,
+descripcion varchar (200) not null,
+abreviatura varchar (4) not null,
 estado smallint not null,
 fechaIngreso datetime null,
 usuarioIngreso varchar(10) null,

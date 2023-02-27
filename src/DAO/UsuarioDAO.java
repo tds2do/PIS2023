@@ -22,7 +22,8 @@ public class UsuarioDAO {
     public boolean login(Usuario user){
         
         Hash hs = new Hash(user.getPassword());
-        String sql = "SELECT * FROM usuario WHERE username='"+user.getUsername()+"' AND password='"+hs.generate()+"'";
+        String sql = "SELECT * FROM usuario AS u INNER JOIN rol AS r ON u.idRol=r.idRol "
+                + "WHERE u.username='"+user.getUsername()+"' AND u.password='"+hs.generate()+"' AND u.estado=1";
         List res = bd.execute(sql);
 
         if(!res.isEmpty()){
@@ -35,8 +36,8 @@ public class UsuarioDAO {
             user.setCargo((String) row.get("cargo"));
             user.setDepartamento((String) row.get("departamento"));
             user.setIdRol((int) row.get("idUsuario"));
-            
-            System.out.print(row.get("password"));
+            user.setNombreRol((String) row.get("abreviatura"));
+            //System.out.print(row.get("password"));
             return true;
         }
         

@@ -48,6 +48,10 @@ public class Categoria extends RegistroAuditoria{
         this.descripcion = descripcion;
     }
 
+    public void setAbreviatura() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
     
     
     

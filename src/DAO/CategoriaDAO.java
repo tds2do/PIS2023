@@ -7,7 +7,9 @@ package DAO;
 import Interfaces.ICategoria;
 import Modelo.Categoria;
 import Modelo.DataBase;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -72,10 +74,34 @@ public class CategoriaDAO implements ICategoria{
     }
 
     @Override
-    public List<Categoria> consultar() {
+    public List<Categoria> listar() {
         String sql = "SELECT * FROM Categoria WHERE estado = 1";
-        List rows = bd.execute(sql);
-        return rows;
+        List<Map> rows = bd.execute(sql);
+        List<Categoria> Categorias = new ArrayList();
+        for(Map row : rows){
+            Categoria cat = new Categoria();
+            cat.setIdCategoria((int) row.get("id"));
+            cat.setNombre((String) row.get("nombre"));
+            cat.setAbreviatura((String) row.get("abreviatura"));
+            cat.setDescripcion((String) row.get("descripcion"));
+            Categorias.add(cat);
+        }
+        return Categorias;
     }
+
+    @Override
+    public Categoria leer(int idCategoria) {
+        String sql = "SELECT * FROM Categoria WHERE idCategoria="+idCategoria;
+        List<Map> data = bd.execute(sql);
+        Categoria cat = new Categoria();
+        for(Map da : data){
+            cat.setIdCategoria((int) da.get("idCategoria"));
+            cat.setNombre((String) da.get("nombre"));
+            cat.setAbreviatura((String) da.get("abreviatura"));
+            cat.setDescripcion((String) da.get("descripcion"));
+        }
+        return cat;
+    }
+    
     
 }

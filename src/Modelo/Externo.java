@@ -101,7 +101,9 @@ public class Externo extends RegistroAuditoria{
         this.celular = celular;
     }
     
-    
+    public String getNombreCompleto() {
+        return primerNombre+" "+segundoNombre+" "+primerApellido+" "+segundoApellido;
+    }
     
     
 }

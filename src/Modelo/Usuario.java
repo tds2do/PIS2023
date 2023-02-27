@@ -28,6 +28,7 @@ public class Usuario extends RegistroAuditoria{
     private String direccion;
     private String nombreRol;
     
+    
     public Usuario(){
     }
     
@@ -151,7 +152,9 @@ public class Usuario extends RegistroAuditoria{
         this.nombreRol = nombreRol;
     }
     
-    
+    public String getNombreCompleto() {
+        return primerNombre+" "+segundoNombre+" "+primerApellido+" "+segundoApellido;
+    }
     
 
     

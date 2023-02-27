@@ -4,8 +4,8 @@
  */
 package vista;
 
-import javax.swing.JOptionPane;
 import DAO.UsuarioDAO;
+import javax.swing.JOptionPane;
 import Modelo.Usuario;
 
 /**
@@ -32,8 +32,6 @@ public class formLogin extends javax.swing.JFrame {
     private void initComponents() {
 
         panLogin = new javax.swing.JPanel();
-        panLoginLeft = new javax.swing.JPanel();
-        labIcon = new javax.swing.JLabel();
         labUsuario = new javax.swing.JLabel();
         labPassword = new javax.swing.JLabel();
         txtUsuario = new javax.swing.JTextField();
@@ -41,43 +39,39 @@ public class formLogin extends javax.swing.JFrame {
         btnLogin = new javax.swing.JButton();
         labCopy = new javax.swing.JLabel();
         labTitle = new javax.swing.JLabel();
+        labLoginImg = new javax.swing.JLabel();
+        labMainIcon = new javax.swing.JLabel();
+        sepUsuario = new javax.swing.JSeparator();
+        sepPassword = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle(".: SIFARM :.");
+        setLocationByPlatform(true);
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        panLogin.setBackground(new java.awt.Color(102, 204, 255));
+        panLogin.setBackground(new java.awt.Color(30, 150, 210));
 
-        panLoginLeft.setBackground(new java.awt.Color(51, 255, 255));
-
-        javax.swing.GroupLayout panLoginLeftLayout = new javax.swing.GroupLayout(panLoginLeft);
-        panLoginLeft.setLayout(panLoginLeftLayout);
-        panLoginLeftLayout.setHorizontalGroup(
-            panLoginLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
-        panLoginLeftLayout.setVerticalGroup(
-            panLoginLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 460, Short.MAX_VALUE)
-        );
-
-        labIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icons8-caja-llena-white/icons8-caja-llena-96.png"))); // NOI18N
-
-        labUsuario.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        labUsuario.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         labUsuario.setForeground(new java.awt.Color(255, 255, 255));
-        labUsuario.setText("Usuario:");
+        labUsuario.setText("Usuario");
 
-        labPassword.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        labPassword.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         labPassword.setForeground(new java.awt.Color(255, 255, 255));
-        labPassword.setText("Contraseña:");
+        labPassword.setText("Contraseña");
 
-        txtUsuario.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        txtUsuario.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        txtUsuario.setBackground(new java.awt.Color(30, 150, 210));
+        txtUsuario.setFont(new java.awt.Font("Roboto Light", 0, 22)); // NOI18N
+        txtUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        txtUsuario.setBorder(null);
 
-        txtPassword.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        txtPassword.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        txtPassword.setBackground(new java.awt.Color(30, 150, 210));
+        txtPassword.setFont(new java.awt.Font("Roboto Light", 0, 22)); // NOI18N
+        txtPassword.setForeground(new java.awt.Color(255, 255, 255));
+        txtPassword.setBorder(null);
 
-        btnLogin.setBackground(new java.awt.Color(255, 213, 77));
-        btnLogin.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        btnLogin.setBackground(new java.awt.Color(242, 193, 34));
+        btnLogin.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         btnLogin.setForeground(new java.awt.Color(255, 255, 255));
         btnLogin.setText("Entrar");
         btnLogin.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -89,103 +83,111 @@ public class formLogin extends javax.swing.JFrame {
             }
         });
 
-        labCopy.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        labCopy.setFont(new java.awt.Font("Bahnschrift", 0, 12)); // NOI18N
         labCopy.setForeground(new java.awt.Color(255, 255, 255));
-        labCopy.setText("Todos los derechos 2do TDS A @ 2023.");
+        labCopy.setText("©2023 Elaborado y diseñado por 2 TDS");
 
-        labTitle.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        labTitle.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         labTitle.setForeground(new java.awt.Color(255, 255, 255));
         labTitle.setText("Iniciar Sesión");
+
+        labLoginImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/general/fondologin.png"))); // NOI18N
+
+        labMainIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/general/logosifar.png"))); // NOI18N
+
+        sepUsuario.setBackground(new java.awt.Color(240, 240, 240));
+        sepUsuario.setForeground(new java.awt.Color(255, 255, 255));
+
+        sepPassword.setBackground(new java.awt.Color(240, 240, 240));
+        sepPassword.setForeground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout panLoginLayout = new javax.swing.GroupLayout(panLogin);
         panLogin.setLayout(panLoginLayout);
         panLoginLayout.setHorizontalGroup(
             panLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panLoginLayout.createSequentialGroup()
-                .addComponent(panLoginLeft, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(panLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panLoginLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(panLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panLoginLayout.createSequentialGroup()
+                    .addGroup(panLoginLayout.createSequentialGroup()
+                        .addContainerGap(26, Short.MAX_VALUE)
+                        .addGroup(panLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(sepPassword)
+                            .addComponent(txtPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 330, Short.MAX_VALUE)
+                            .addComponent(labUsuario, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(sepUsuario)
+                            .addGroup(panLoginLayout.createSequentialGroup()
                                 .addComponent(labTitle)
-                                .addGap(106, 106, 106))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panLoginLayout.createSequentialGroup()
-                                .addComponent(labCopy)
-                                .addGap(51, 51, 51))))
+                                .addGap(18, 18, 18)
+                                .addComponent(labMainIcon))
+                            .addComponent(txtUsuario)
+                            .addComponent(labPassword, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addGap(43, 43, 43))
                     .addGroup(panLoginLayout.createSequentialGroup()
                         .addGroup(panLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panLoginLayout.createSequentialGroup()
-                                .addGap(129, 129, 129)
-                                .addComponent(labIcon))
+                                .addGap(92, 92, 92)
+                                .addComponent(labCopy))
                             .addGroup(panLoginLayout.createSequentialGroup()
-                                .addGap(32, 32, 32)
-                                .addGroup(panLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(labUsuario)
-                                    .addComponent(labPassword))
-                                .addGap(26, 26, 26)
-                                .addGroup(panLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 29, Short.MAX_VALUE))))
+                                .addGap(126, 126, 126)
+                                .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addComponent(labLoginImg)
+                .addGap(1, 1, 1))
         );
         panLoginLayout.setVerticalGroup(
             panLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panLoginLayout.createSequentialGroup()
-                .addComponent(panLoginLeft, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(panLoginLayout.createSequentialGroup()
-                .addGap(49, 49, 49)
-                .addComponent(labIcon)
-                .addGap(36, 36, 36)
-                .addComponent(labTitle)
-                .addGap(26, 26, 26)
-                .addGroup(panLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labUsuario))
-                .addGap(26, 26, 26)
-                .addGroup(panLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labPassword))
-                .addGap(26, 26, 26)
-                .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21)
+                .addGroup(panLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(labMainIcon)
+                    .addComponent(labTitle))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(labUsuario)
+                .addGap(18, 18, 18)
+                .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(sepUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(labPassword)
+                .addGap(18, 18, 18)
+                .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(sepPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36)
+                .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(53, 53, 53)
                 .addComponent(labCopy)
-                .addGap(16, 16, 16))
+                .addContainerGap())
+            .addComponent(labLoginImg, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        labIcon.getAccessibleContext().setAccessibleName("labIcon");
-
-        getContentPane().add(panLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 460));
+        getContentPane().add(panLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 500));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        
+
         String password = String.valueOf(txtPassword.getPassword());
         Usuario user = new Usuario();
         UsuarioDAO acc = new UsuarioDAO();
-        
+
         if(!txtUsuario.getText().equals("") && !password.equals("")){
-            
+
             user.setUsername(txtUsuario.getText());
             user.setPassword(password);
-            
+
             if(acc.login(user)){
                 //this.setVisible(false);
                 this.dispose();
-                formDashboard dashboard = new formDashboard();
+                formHomeAdmin dashboard = new formHomeAdmin(user);
                 dashboard.setVisible(true);
             }else{
                 JOptionPane.showMessageDialog(null, "Usuario y/o contraseña incorrectos.");
             }
-            
+
         }else{
             JOptionPane.showMessageDialog(null, "Usuario y/o contraseña incorrectos.");
         }
-
     }//GEN-LAST:event_btnLoginActionPerformed
 
     /**
@@ -226,12 +228,14 @@ public class formLogin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogin;
     private javax.swing.JLabel labCopy;
-    private javax.swing.JLabel labIcon;
+    private javax.swing.JLabel labLoginImg;
+    private javax.swing.JLabel labMainIcon;
     private javax.swing.JLabel labPassword;
     private javax.swing.JLabel labTitle;
     private javax.swing.JLabel labUsuario;
     private javax.swing.JPanel panLogin;
-    private javax.swing.JPanel panLoginLeft;
+    private javax.swing.JSeparator sepPassword;
+    private javax.swing.JSeparator sepUsuario;
     private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables

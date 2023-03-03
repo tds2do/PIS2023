@@ -15,5 +15,6 @@ public interface ICliente {
     public Boolean registrar(Cliente cliente);
     public Boolean modificar(Cliente cliente);
     public Boolean eliminar(Cliente cliente);
-    public List<Cliente> consultar();        
+    public List<Cliente> listar();        
+    public Cliente leer(int idCliente);
 }

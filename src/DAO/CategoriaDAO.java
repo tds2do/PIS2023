@@ -43,13 +43,8 @@ public class CategoriaDAO implements ICategoria{
         String sql = "UPDATE Producto SET nombre='"
                 + categoria.getNombre()+"',abreviatura='"
                 + categoria.getAbreviatura()+"',descripcion='"
-                + categoria.getDescripcion()+"',estado='"
-                + categoria.getEstado()+"',fechaIngreso='"
-                + categoria.getFechaIngreso()+"',usuarioIngreso='"
-                + categoria.getUsuarioIngreso()+"',fechaModifica='"
+                + categoria.getDescripcion()+"',fechaModifica='"
                 + categoria.getFechaModifica()+"',usuarioModifica='"
-                + categoria.getUsuarioModifica()+"',fechaElimina='"
-                + categoria.getFechaElimina()+"',usuarioElimina='"
                 + categoria.getUsuarioElimina()+"' WHERE idCategoria="
                 + categoria.getIdCategoria();
         

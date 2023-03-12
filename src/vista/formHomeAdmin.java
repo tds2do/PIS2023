@@ -4,13 +4,24 @@
  */
 package vista;
 
+import VistaSecundaria.Clientes;
 import DAO.ParametroDAO;
 import Modelo.Parametro;
 import Modelo.Usuario;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import javax.swing.JOptionPane;
-
+import VistaSecundaria.Clientes;
+import VistaSecundaria.Categoria;
+import VistaSecundaria.Entradas;
+import VistaSecundaria.Inventario;
+import VistaSecundaria.Medidas;
+import VistaSecundaria.Productos;
+import VistaSecundaria.Proveedores;
+import VistaSecundaria.Roles;
+import VistaSecundaria.Salidas;
+import VistaSecundaria.Usuarios;
+import java.awt.BorderLayout;
 /**
  *
  * @author Jonathan
@@ -51,7 +62,7 @@ public class formHomeAdmin extends javax.swing.JFrame {
             menuItem10.setEnabled(false);
             menuItem10.setText("");
         }
-        
+ 
     }
     
     /**
@@ -85,7 +96,6 @@ public class formHomeAdmin extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle(".: SIFARM :.");
-        setPreferredSize(new java.awt.Dimension(1000, 600));
 
         panContainer.setBackground(new java.awt.Color(224, 224, 224));
 
@@ -93,7 +103,7 @@ public class formHomeAdmin extends javax.swing.JFrame {
 
         labNameSystem.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         labNameSystem.setForeground(new java.awt.Color(255, 255, 255));
-        labNameSystem.setText("SIFARM");
+        labNameSystem.setText("SIFAR");
 
         sepMenu.setBackground(new java.awt.Color(255, 255, 255));
         sepMenu.setForeground(new java.awt.Color(255, 255, 255));
@@ -105,6 +115,11 @@ public class formHomeAdmin extends javax.swing.JFrame {
         menuItem1.setBorder(null);
         menuItem1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         menuItem1.setFocusable(false);
+        menuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItem1ActionPerformed(evt);
+            }
+        });
 
         menuItem2.setBackground(new java.awt.Color(11, 58, 82));
         menuItem2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -113,6 +128,11 @@ public class formHomeAdmin extends javax.swing.JFrame {
         menuItem2.setBorder(null);
         menuItem2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         menuItem2.setFocusable(false);
+        menuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItem2ActionPerformed(evt);
+            }
+        });
 
         menuItem3.setBackground(new java.awt.Color(11, 58, 82));
         menuItem3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -121,6 +141,11 @@ public class formHomeAdmin extends javax.swing.JFrame {
         menuItem3.setBorder(null);
         menuItem3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         menuItem3.setFocusable(false);
+        menuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItem3ActionPerformed(evt);
+            }
+        });
 
         menuItem4.setBackground(new java.awt.Color(11, 58, 82));
         menuItem4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -129,6 +154,11 @@ public class formHomeAdmin extends javax.swing.JFrame {
         menuItem4.setBorder(null);
         menuItem4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         menuItem4.setFocusable(false);
+        menuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItem4ActionPerformed(evt);
+            }
+        });
 
         menuItem5.setBackground(new java.awt.Color(11, 58, 82));
         menuItem5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -137,6 +167,11 @@ public class formHomeAdmin extends javax.swing.JFrame {
         menuItem5.setBorder(null);
         menuItem5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         menuItem5.setFocusable(false);
+        menuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItem5ActionPerformed(evt);
+            }
+        });
 
         menuItem6.setBackground(new java.awt.Color(11, 58, 82));
         menuItem6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -145,6 +180,11 @@ public class formHomeAdmin extends javax.swing.JFrame {
         menuItem6.setBorder(null);
         menuItem6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         menuItem6.setFocusable(false);
+        menuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItem6ActionPerformed(evt);
+            }
+        });
 
         menuItem7.setBackground(new java.awt.Color(11, 58, 82));
         menuItem7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -153,6 +193,11 @@ public class formHomeAdmin extends javax.swing.JFrame {
         menuItem7.setBorder(null);
         menuItem7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         menuItem7.setFocusable(false);
+        menuItem7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItem7ActionPerformed(evt);
+            }
+        });
 
         menuItem8.setBackground(new java.awt.Color(11, 58, 82));
         menuItem8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -161,6 +206,11 @@ public class formHomeAdmin extends javax.swing.JFrame {
         menuItem8.setBorder(null);
         menuItem8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         menuItem8.setFocusable(false);
+        menuItem8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItem8ActionPerformed(evt);
+            }
+        });
 
         menuItem9.setBackground(new java.awt.Color(11, 58, 82));
         menuItem9.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -169,6 +219,11 @@ public class formHomeAdmin extends javax.swing.JFrame {
         menuItem9.setBorder(null);
         menuItem9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         menuItem9.setFocusable(false);
+        menuItem9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItem9ActionPerformed(evt);
+            }
+        });
 
         menuItem10.setBackground(new java.awt.Color(11, 58, 82));
         menuItem10.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -177,6 +232,11 @@ public class formHomeAdmin extends javax.swing.JFrame {
         menuItem10.setBorder(null);
         menuItem10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         menuItem10.setFocusable(false);
+        menuItem10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItem10ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panMenuLayout = new javax.swing.GroupLayout(panMenu);
         panMenu.setLayout(panMenuLayout);
@@ -193,21 +253,20 @@ public class formHomeAdmin extends javax.swing.JFrame {
             .addComponent(menuItem10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(menuItem2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(panMenuLayout.createSequentialGroup()
-                .addGroup(panMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panMenuLayout.createSequentialGroup()
-                        .addGap(87, 87, 87)
-                        .addComponent(labNameSystem))
-                    .addGroup(panMenuLayout.createSequentialGroup()
-                        .addGap(37, 37, 37)
-                        .addComponent(sepMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(37, 37, 37)
+                .addComponent(sepMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(36, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panMenuLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(labNameSystem)
+                .addGap(97, 97, 97))
         );
         panMenuLayout.setVerticalGroup(
             panMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panMenuLayout.createSequentialGroup()
-                .addGap(14, 14, 14)
+                .addContainerGap()
                 .addComponent(labNameSystem, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(14, 14, 14)
                 .addComponent(sepMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(menuItem1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -229,7 +288,7 @@ public class formHomeAdmin extends javax.swing.JFrame {
                 .addComponent(menuItem9, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(menuItem10, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(157, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         panHeader.setBackground(new java.awt.Color(30, 150, 210));
@@ -256,7 +315,7 @@ public class formHomeAdmin extends javax.swing.JFrame {
                 .addGroup(panHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panHeaderLayout.createSequentialGroup()
                         .addComponent(labNameEmpresa)
-                        .addGap(0, 431, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(panHeaderLayout.createSequentialGroup()
                         .addComponent(labFechaActual)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -272,7 +331,7 @@ public class formHomeAdmin extends javax.swing.JFrame {
                 .addGroup(panHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labUsername)
                     .addComponent(labFechaActual))
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         panContent.setBackground(new java.awt.Color(224, 224, 224));
@@ -281,11 +340,11 @@ public class formHomeAdmin extends javax.swing.JFrame {
         panContent.setLayout(panContentLayout);
         panContentLayout.setHorizontalGroup(
             panContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 709, Short.MAX_VALUE)
         );
         panContentLayout.setVerticalGroup(
             panContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 700, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout panContainerLayout = new javax.swing.GroupLayout(panContainer);
@@ -295,7 +354,7 @@ public class formHomeAdmin extends javax.swing.JFrame {
             .addGroup(panContainerLayout.createSequentialGroup()
                 .addComponent(panMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panContent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(panContent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(panContainerLayout.createSequentialGroup()
                 .addGap(264, 264, 264)
@@ -307,7 +366,7 @@ public class formHomeAdmin extends javax.swing.JFrame {
             .addGroup(panContainerLayout.createSequentialGroup()
                 .addComponent(panHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panContent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(panContent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -326,6 +385,116 @@ public class formHomeAdmin extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void menuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItem1ActionPerformed
+        Clientes clt = new Clientes();
+        clt.setSize(709,700);
+        clt.setLocation(0,0);
+
+        panContent.removeAll();
+        panContent.add(clt,BorderLayout.CENTER);
+        panContent.revalidate();
+        panContent.repaint();
+    }//GEN-LAST:event_menuItem1ActionPerformed
+
+    private void menuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItem2ActionPerformed
+       Proveedores prv = new Proveedores();
+        prv.setSize(709,700);
+        prv.setLocation(0,0);
+
+        panContent.removeAll();
+        panContent.add(prv,BorderLayout.CENTER);
+        panContent.revalidate();
+        panContent.repaint();
+    }//GEN-LAST:event_menuItem2ActionPerformed
+
+    private void menuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItem3ActionPerformed
+        Productos prd = new Productos();
+        prd.setSize(709,700);
+        prd.setLocation(0,0);
+
+        panContent.removeAll();
+        panContent.add(prd,BorderLayout.CENTER);
+        panContent.revalidate();
+        panContent.repaint();
+    }//GEN-LAST:event_menuItem3ActionPerformed
+
+    private void menuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItem4ActionPerformed
+        Entradas entr = new Entradas();
+        entr.setSize(709,700);
+        entr.setLocation(0,0);
+
+        panContent.removeAll();
+        panContent.add(entr,BorderLayout.CENTER);
+        panContent.revalidate();
+        panContent.repaint();
+    }//GEN-LAST:event_menuItem4ActionPerformed
+
+    private void menuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItem5ActionPerformed
+        Salidas sld = new Salidas();
+        sld.setSize(709,700);
+        sld.setLocation(0,0);
+
+        panContent.removeAll();
+        panContent.add(sld,BorderLayout.CENTER);
+        panContent.revalidate();
+        panContent.repaint();
+    }//GEN-LAST:event_menuItem5ActionPerformed
+
+    private void menuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItem6ActionPerformed
+        Inventario inv = new Inventario();
+        inv.setSize(709,700);
+        inv.setLocation(0,0);
+
+        panContent.removeAll();
+        panContent.add(inv,BorderLayout.CENTER);
+        panContent.revalidate();
+        panContent.repaint();
+    }//GEN-LAST:event_menuItem6ActionPerformed
+
+    private void menuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItem7ActionPerformed
+        Categoria ctg = new Categoria();
+        ctg.setSize(709,700);
+        ctg.setLocation(0,0);
+
+        panContent.removeAll();
+        panContent.add(ctg,BorderLayout.CENTER);
+        panContent.revalidate();
+        panContent.repaint();
+    }//GEN-LAST:event_menuItem7ActionPerformed
+
+    private void menuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItem8ActionPerformed
+        Medidas mdd = new Medidas();
+        mdd.setSize(709,700);
+        mdd.setLocation(0,0);
+
+        panContent.removeAll();
+        panContent.add(mdd,BorderLayout.CENTER);
+        panContent.revalidate();
+        panContent.repaint();
+    }//GEN-LAST:event_menuItem8ActionPerformed
+
+    private void menuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItem9ActionPerformed
+        Usuarios usu = new Usuarios();
+        usu.setSize(709,700);
+        usu.setLocation(0,0);
+
+        panContent.removeAll();
+        panContent.add(usu,BorderLayout.CENTER);
+        panContent.revalidate();
+        panContent.repaint();
+    }//GEN-LAST:event_menuItem9ActionPerformed
+
+    private void menuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItem10ActionPerformed
+        Roles rl = new Roles();
+        rl .setSize(709,700);
+        rl .setLocation(0,0);
+
+        panContent.removeAll();
+        panContent.add(rl ,BorderLayout.CENTER);
+        panContent.revalidate();
+        panContent.repaint();
+    }//GEN-LAST:event_menuItem10ActionPerformed
 
     /**
      * @param args the command line arguments

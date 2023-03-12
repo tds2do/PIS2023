@@ -7,7 +7,9 @@ package DAO;
 import Interfaces.ICliente;
 import Modelo.Cliente;
 import Modelo.DataBase;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -57,13 +59,8 @@ public class ClienteDAO implements ICliente{
                 + cliente.getCorreo()+"',direccion='"
                 + cliente.getDireccion()+"',telefono='"
                 + cliente.getTelefono()+"',celular='"                
-                + cliente.getCelular()+"',estado='"
-                + cliente.getEstado()+"',fechaIngreso='"
-                + cliente.getFechaIngreso()+"',usuarioIngreso='"
-                + cliente.getUsuarioIngreso()+"',fechaModifica='"
-                + cliente.getFechaModifica()+"',usuarioModifica='"
-                + cliente.getUsuarioModifica()+"',fechaElimina='"
-                + cliente.getFechaElimina()+"',usuarioElimina='"
+                + cliente.getCelular()+"',fechaModifica='"
+                + cliente.getFechaElimina()+"',usuarioModifica='"
                 + cliente.getUsuarioElimina()+"' WHERE idProveedor="
                 + cliente.getIdCliente();
         
@@ -89,11 +86,50 @@ public class ClienteDAO implements ICliente{
     }
 
     @Override
-    public List<Cliente> consultar() {
+    public List<Cliente> listar() {
         
         String sql = "SELECT * FROM Cliente WHERE estado = 1";
-        List rows = bd.execute(sql);
-        return rows;
+        List<Map> rows = bd.execute(sql);
+        List<Cliente> clientes = new ArrayList();
+        for(Map row : rows){
+            Cliente cli = new Cliente();
+            cli.setRuc((String) row.get("ruc"));
+            cli.setRazonSocial((String) row.get("razonSocial"));
+            cli.setPrimerNombre((String) row.get("primerNombre"));
+            cli.setSegundoNombre((String) row.get("segundoNombre"));
+            cli.setPrimerApellido((String) row.get("primerApellido"));
+            cli.setSegundoApellido((String) row.get("segundoApellido"));  
+            cli.setCorreo((String) row.get("correo"));
+            cli.setDireccion((String) row.get("direccion"));  
+            cli.setTelefono((String) row.get("telefono"));
+            cli.setCelular((String) row.get("celular"));              
+            clientes.add(cli);
+        }
+        return clientes;
         
     }    
+
+    @Override
+    public Cliente leer(int idCliente) {
+        String sql = "SELECT * FROM Categoria WHERE idCategoria="+idCliente;
+        List<Map> data = bd.execute(sql);
+        Cliente cli = new Cliente();
+        for(Map da : data){
+            cli.setIdCliente((int) da.get("idCliente"));
+            cli.setPrimerNombre((String) da.get("primerNombre"));
+            cli.setSegundoNombre((String) da.get("segundoNombre"));
+            cli.setPrimerApellido((String) da.get("primerApellido"));
+            cli.setSegundoApellido((String) da.get("segundoApellido"));
+            cli.setRuc((String) da.get("ruc"));
+            cli.setRazonSocial((String) da.get("razonSocial"));
+            cli.setCorreo((String) da.get("correo"));
+            cli.setDireccion((String) da.get("direccion"));
+            cli.setTelefono((String) da.get("telefono"));
+            cli.setCelular((String) da.get("celular"));
+        }
+        return cli;
+    }
+    
+    
+    
 }

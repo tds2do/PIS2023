@@ -94,6 +94,7 @@ public class ClienteDAO implements ICliente{
         List<Cliente> clientes = new ArrayList();
         for(Map row : rows){
             Cliente cli = new Cliente();
+            cli.setIdCliente((int) row.get("idCliente"));
             cli.setRuc((String) row.get("ruc"));
             cli.setRazonSocial((String) row.get("razonSocial"));
             cli.setPrimerNombre((String) row.get("primerNombre"));

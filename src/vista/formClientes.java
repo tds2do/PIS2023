@@ -8,6 +8,7 @@ import DAO.ClienteDAO;
 import Modelo.Cliente;
 import Modelo.Usuario;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -44,7 +45,7 @@ public class formClientes extends javax.swing.JPanel {
         
         for(Cliente cli :clientes){
             
-            model.addRow(new String[]{cli.getRuc(), cli.getRazonSocial(), cli.getPrimerNombre(), cli.getSegundoNombre(), 
+            model.addRow(new String[]{String.valueOf(cli.getIdCliente()), cli.getRuc(), cli.getRazonSocial(), cli.getPrimerNombre(), cli.getSegundoNombre(), 
                 cli.getPrimerApellido(), cli.getSegundoApellido(), cli.getTelefono(), cli.getCelular(), cli.getCorreo(),
                 cli.getDireccion()
             });
@@ -80,13 +81,13 @@ public class formClientes extends javax.swing.JPanel {
 
         tabListaClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "RUC", "Razón Social", "Primer Nombre", "SegundoNombre", "Primer Apellido", "Segundo Apellido", "Teléfono", "Celular", "Correo", "Dirección"
+                "Id", "RUC", "Razón Social", "Primer Nombre", "SegundoNombre", "Primer Apellido", "Segundo Apellido", "Teléfono", "Celular", "Correo", "Dirección"
             }
         ));
         jScrollPane1.setViewportView(tabListaClientes);
@@ -128,7 +129,13 @@ public class formClientes extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        // TODO add your handling code here:
+        
+        int fila = tabListaClientes.getSelectedRow();
+        if(fila < 0){
+        }else{
+            JOptionPane.showMessageDialog(null, "Pr favor, debe seleccionar un registro.");
+        }
+        
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
@@ -140,7 +147,13 @@ public class formClientes extends javax.swing.JPanel {
     }//GEN-LAST:event_btnNuevoActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
-        // TODO add your handling code here:
+        
+        int fila = tabListaClientes.getSelectedRow();
+        if(fila < 0){
+        }else{
+            JOptionPane.showMessageDialog(null, "Pr favor, debe seleccionar un registro.");
+        }
+        
     }//GEN-LAST:event_btnModificarActionPerformed
 
 

@@ -66,7 +66,7 @@ public class formClienteAdd extends javax.swing.JFrame {
         btnGuardar = new javax.swing.JButton();
         btnGuardar1 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
         setResizable(false);
 

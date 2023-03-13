@@ -7,6 +7,7 @@ package DAO;
 import Interfaces.ICategoria;
 import Modelo.Categoria;
 import Modelo.DataBase;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -26,12 +27,12 @@ public class CategoriaDAO implements ICategoria{
                 + categoria.getAbreviatura()+"','"
                 + categoria.getDescripcion()+"','"
                 + categoria.getEstado()+"','"
-                + categoria.getFechaIngreso()+"','"
-                + categoria.getUsuarioIngreso()+"','"
-                + null+"','"
-                + null+"','"
-                + null+"','"
-                + null+"')";
+                + categoria.getFechaIngreso().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))+"','"
+                + categoria.getUsuarioIngreso()+"', "
+                + null+", "
+                + null+", "
+                + null+", "
+                + null+") ";
         if(bd.update(sql) > 0){
             return true;
         }
@@ -44,8 +45,8 @@ public class CategoriaDAO implements ICategoria{
                 + categoria.getNombre()+"',abreviatura='"
                 + categoria.getAbreviatura()+"',descripcion='"
                 + categoria.getDescripcion()+"',fechaModifica='"
-                + categoria.getFechaModifica()+"',usuarioModifica='"
-                + categoria.getUsuarioElimina()+"' WHERE idCategoria="
+                + categoria.getFechaModifica().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))+"',usuarioModifica='"
+                + categoria.getUsuarioModifica()+"' WHERE idCategoria="
                 + categoria.getIdCategoria();
         
         if(bd.update(sql) > 0){
@@ -58,7 +59,7 @@ public class CategoriaDAO implements ICategoria{
     public Boolean eliminar(Categoria categoria) {
         String sql = "UPDATE Categoria SET estado='"
                 + categoria.getEstado()+"',fechaElimina='"
-                + categoria.getFechaElimina()+"',usuarioElimina='"
+                + categoria.getFechaElimina().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))+"',usuarioElimina='"
                 + categoria.getUsuarioElimina()+"' WHERE idCategoria="
                 + categoria.getIdCategoria();
         

@@ -2,18 +2,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package VistaSecundaria;
+package vista;
 
 /**
  *
  * @author Kevin Barzola
  */
-public class Inventario extends javax.swing.JPanel {
+public class formInventario extends javax.swing.JPanel {
 
     /**
      * Creates new form Inventario
      */
-    public Inventario() {
+    public formInventario() {
         initComponents();
     }
 

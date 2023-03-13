@@ -2,18 +2,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package VistaSecundaria;
+package vista;
 
 /**
  *
  * @author Kevin Barzola
  */
-public class Categoria extends javax.swing.JPanel {
+public class formCategorias extends javax.swing.JPanel {
 
     /**
      * Creates new form Categoria
      */
-    public Categoria() {
+    public formCategorias() {
         initComponents();
     }
 
@@ -48,12 +48,10 @@ public class Categoria extends javax.swing.JPanel {
         jLabel2.setText("CATEGORIA");
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Nombre");
 
         jTextField13.setBackground(new java.awt.Color(224, 224, 224));
         jTextField13.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        jTextField13.setForeground(new java.awt.Color(0, 0, 0));
         jTextField13.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
         jTextField13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -62,12 +60,10 @@ public class Categoria extends javax.swing.JPanel {
         });
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Descripción");
 
         jTextField14.setBackground(new java.awt.Color(224, 224, 224));
         jTextField14.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        jTextField14.setForeground(new java.awt.Color(0, 0, 0));
         jTextField14.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
         jTextField14.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -76,7 +72,6 @@ public class Categoria extends javax.swing.JPanel {
         });
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("Abreviatura");
 
         jTextArea1.setColumns(20);
@@ -86,7 +81,6 @@ public class Categoria extends javax.swing.JPanel {
         jScrollPane1.setViewportView(jTextArea1);
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
         jLabel11.setText("Estado");
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "I", "A" }));
@@ -230,7 +224,6 @@ public class Categoria extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;

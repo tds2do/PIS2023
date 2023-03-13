@@ -7,6 +7,7 @@ package DAO;
 import Interfaces.IMedida;
 import Modelo.DataBase;
 import Modelo.Medida;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 /**
@@ -24,11 +25,11 @@ public class MedidaDAO implements IMedida{
                 + medida.getAbreviatura()+"','"
                 + medida.getEstado()+"','"
                 + medida.getFechaIngreso()+"','"
-                + medida.getUsuarioIngreso()+"','"
-                + null+"','"
-                + null+"','"
-                + null+"','"
-                + null+"')";
+                + medida.getUsuarioIngreso()+"', "
+                + null+", "
+                + null+", "
+                + null+", "
+                + null+")";
         if(bd.update(sql) > 0){
             return true;
         }
@@ -39,14 +40,9 @@ public class MedidaDAO implements IMedida{
     public Boolean modificar(Medida medida) {
         String sql = "UPDATE Producto SET descripcion='"
                 + medida.getDescripcion()+"',abreviatura='"
-                + medida.getAbreviatura()+"',estado='"
-                + medida.getEstado()+"',fechaIngreso='"
-                + medida.getFechaIngreso()+"',usuarioIngreso='"
-                + medida.getUsuarioIngreso()+"',fechaModifica='"
-                + medida.getFechaModifica()+"',usuarioModifica='"
-                + medida.getUsuarioModifica()+"',fechaElimina='"
-                + medida.getFechaElimina()+"',usuarioElimina='"
-                + medida.getUsuarioElimina()+"' WHERE idMedida="
+                + medida.getAbreviatura()+"',fechaModifica='"
+                + medida.getFechaModifica().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))+"',usuarioModifica='"
+                + medida.getUsuarioModifica()+"' WHERE idMedida="
                 + medida.getIdMedida();
         
         if(bd.update(sql) > 0){
@@ -59,7 +55,7 @@ public class MedidaDAO implements IMedida{
     public Boolean eliminar(Medida medida) {
         String sql = "UPDATE Medida SET estado='"
                 + medida.getEstado()+"',fechaElimina='"
-                + medida.getFechaElimina()+"',usuarioElimina='"
+                + medida.getFechaElimina().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))+"',usuarioElimina='"
                 + medida.getUsuarioElimina()+"' WHERE idMedida="
                 + medida.getIdMedida();
         

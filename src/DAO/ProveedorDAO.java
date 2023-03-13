@@ -34,10 +34,10 @@ public class ProveedorDAO implements IProveedor{
                 + proveedor.getCelular()+"','"                
                 + proveedor.getEstado()+"','"
                 + proveedor.getFechaIngreso()+"','"
-                + proveedor.getUsuarioIngreso()+"','"
-                + null+"','"
-                + null+"','"
-                + null+"','"
+                + proveedor.getUsuarioIngreso()+"', "
+                + null+", "
+                + null+", "
+                + null+", "
                 + null+"')";
         if(bd.update(sql) > 0){
             return true;
@@ -57,14 +57,9 @@ public class ProveedorDAO implements IProveedor{
                 + proveedor.getCorreo()+"',direccion='"
                 + proveedor.getDireccion()+"',telefono='"
                 + proveedor.getTelefono()+"',celular='"                
-                + proveedor.getCelular()+"',estado='"
-                + proveedor.getEstado()+"',fechaIngreso='"
-                + proveedor.getFechaIngreso()+"',usuarioIngreso='"
-                + proveedor.getUsuarioIngreso()+"',fechaModifica='"
+                + proveedor.getCelular()+"',fechaModifica='"
                 + proveedor.getFechaModifica()+"',usuarioModifica='"
-                + proveedor.getUsuarioModifica()+"',fechaElimina='"
-                + proveedor.getFechaElimina()+"',usuarioElimina='"
-                + proveedor.getUsuarioElimina()+"' WHERE idProveedor="
+                + proveedor.getUsuarioModifica()+"' WHERE idProveedor="
                 + proveedor.getIdProveedor();
         if(bd.update(sql) > 0){
             return true;

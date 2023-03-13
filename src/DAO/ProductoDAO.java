@@ -32,11 +32,11 @@ public class ProductoDAO implements IProducto{
                 + producto.getFechaCaducidad()+"','"
                 + producto.getEstado()+"','"
                 + producto.getFechaIngreso()+"','"
-                + producto.getUsuarioIngreso()+"','"
-                + null+"','"
-                + null+"','"
-                + null+"','"
-                + null+"')";
+                + producto.getUsuarioIngreso()+"', "
+                + null+", "
+                + null+", "
+                + null+", "
+                + null+")";
         if(bd.update(sql) > 0){
             return true;
         }
@@ -53,14 +53,9 @@ public class ProductoDAO implements IProducto{
                 + producto.getIdMedida()+"',precio='"
                 + producto.getPrecio()+"',procentajeIva='"
                 + producto.getPorcentajeIva()+"',fechaCaducidad='"
-                + producto.getFechaCaducidad()+"',estado='"
-                + producto.getEstado()+"',fechaIngreso='"
-                + producto.getFechaIngreso()+"',usuarioIngreso='"
-                + producto.getUsuarioIngreso()+"',fechaModifica='"
+                + producto.getFechaCaducidad()+"',fechaModifica='"
                 + producto.getFechaModifica()+"',usuarioModifica='"
-                + producto.getUsuarioModifica()+"',fechaElimina='"
-                + producto.getFechaElimina()+"',usuarioElimina='"
-                + producto.getUsuarioElimina()+"' WHERE idProducto="
+                + producto.getUsuarioModifica()+"' WHERE idProducto="
                 + producto.getIdProducto();
         
         if(bd.update(sql) > 0){

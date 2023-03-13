@@ -7,6 +7,7 @@ package DAO;
 import Interfaces.ICliente;
 import Modelo.Cliente;
 import Modelo.DataBase;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -35,12 +36,12 @@ public class ClienteDAO implements ICliente{
                 + cliente.getTelefono()+"','"
                 + cliente.getCelular()+"','"                
                 + cliente.getEstado()+"','"
-                + cliente.getFechaIngreso()+"','"
-                + cliente.getUsuarioIngreso()+"','"
-                + null+"','"
-                + null+"','"
-                + null+"','"
-                + null+"')";
+                + cliente.getFechaIngreso().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")) + "','"
+                + cliente.getUsuarioIngreso()+"', "
+                + null+", "
+                + null+", "
+                + null+", "
+                + null+")";
         if(bd.update(sql) > 0){
             return true;
         }
@@ -60,8 +61,8 @@ public class ClienteDAO implements ICliente{
                 + cliente.getDireccion()+"',telefono='"
                 + cliente.getTelefono()+"',celular='"                
                 + cliente.getCelular()+"',fechaModifica='"
-                + cliente.getFechaElimina()+"',usuarioModifica='"
-                + cliente.getUsuarioElimina()+"' WHERE idProveedor="
+                + cliente.getFechaModifica().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")) +"',usuarioModifica='"
+                + cliente.getUsuarioModifica()+"' WHERE idProveedor="
                 + cliente.getIdCliente();
         
         if(bd.update(sql) > 0){
@@ -75,7 +76,7 @@ public class ClienteDAO implements ICliente{
 
         String sql = "UPDATE Cliente SET estado='"
                 + cliente.getEstado()+"',fechaElimina='"
-                + cliente.getFechaElimina()+"',usuarioElimina='"
+                + cliente.getFechaElimina().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")) +"',usuarioElimina='"
                 + cliente.getUsuarioElimina()+"' WHERE idCliente="
                 + cliente.getIdCliente();
         

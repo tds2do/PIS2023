@@ -4,45 +4,34 @@
  */
 package vista;
 
-import VistaSecundaria.Clientes;
 import DAO.ParametroDAO;
 import Modelo.Parametro;
 import Modelo.Usuario;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import javax.swing.JOptionPane;
-import VistaSecundaria.Clientes;
-import VistaSecundaria.Categoria;
-import VistaSecundaria.Entradas;
-import VistaSecundaria.Inventario;
-import VistaSecundaria.Medidas;
-import VistaSecundaria.Productos;
-import VistaSecundaria.Proveedores;
-import VistaSecundaria.Roles;
-import VistaSecundaria.Salidas;
-import VistaSecundaria.Usuarios;
 import java.awt.BorderLayout;
 /**
  *
  * @author Jonathan
  */
-public class formHomeAdmin extends javax.swing.JFrame {
+public class formHome extends javax.swing.JFrame {
 
     /**
      * Creates new form formDashboard
      */
-    Usuario modUsuario;
+    Usuario sysUser;
     Parametro parametro;
     
-    public formHomeAdmin() {
+    public formHome() {
         initComponents();
         this.setLocationRelativeTo(null);
     }
 
-    public formHomeAdmin(Usuario user) {
+    public formHome(Usuario user) {
         initComponents();
         this.setLocationRelativeTo(null);
-        this.modUsuario = user;
+        this.sysUser = user;
         ParametroDAO param = new ParametroDAO();
         parametro = param.leer("EMPR");
         labNameEmpresa.setText(parametro.getValor());
@@ -315,7 +304,7 @@ public class formHomeAdmin extends javax.swing.JFrame {
                 .addGroup(panHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panHeaderLayout.createSequentialGroup()
                         .addComponent(labNameEmpresa)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(0, 421, Short.MAX_VALUE))
                     .addGroup(panHeaderLayout.createSequentialGroup()
                         .addComponent(labFechaActual)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -340,7 +329,7 @@ public class formHomeAdmin extends javax.swing.JFrame {
         panContent.setLayout(panContentLayout);
         panContentLayout.setHorizontalGroup(
             panContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 709, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         panContentLayout.setVerticalGroup(
             panContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -354,7 +343,7 @@ public class formHomeAdmin extends javax.swing.JFrame {
             .addGroup(panContainerLayout.createSequentialGroup()
                 .addComponent(panMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panContent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panContent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(panContainerLayout.createSequentialGroup()
                 .addGap(264, 264, 264)
@@ -378,16 +367,14 @@ public class formHomeAdmin extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(panContainer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(panContainer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void menuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItem1ActionPerformed
-        Clientes clt = new Clientes();
+        formClientes clt = new formClientes(sysUser);
         clt.setSize(709,700);
         clt.setLocation(0,0);
 
@@ -398,8 +385,8 @@ public class formHomeAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_menuItem1ActionPerformed
 
     private void menuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItem2ActionPerformed
-       Proveedores prv = new Proveedores();
-        prv.setSize(709,700);
+       formProveedores prv = new formProveedores();
+        prv.setSize(709, 700);
         prv.setLocation(0,0);
 
         panContent.removeAll();
@@ -409,7 +396,7 @@ public class formHomeAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_menuItem2ActionPerformed
 
     private void menuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItem3ActionPerformed
-        Productos prd = new Productos();
+        formProductos prd = new formProductos();
         prd.setSize(709,700);
         prd.setLocation(0,0);
 
@@ -420,7 +407,7 @@ public class formHomeAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_menuItem3ActionPerformed
 
     private void menuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItem4ActionPerformed
-        Entradas entr = new Entradas();
+        formEntradas entr = new formEntradas();
         entr.setSize(709,700);
         entr.setLocation(0,0);
 
@@ -431,7 +418,7 @@ public class formHomeAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_menuItem4ActionPerformed
 
     private void menuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItem5ActionPerformed
-        Salidas sld = new Salidas();
+        formSalidas sld = new formSalidas();
         sld.setSize(709,700);
         sld.setLocation(0,0);
 
@@ -442,7 +429,7 @@ public class formHomeAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_menuItem5ActionPerformed
 
     private void menuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItem6ActionPerformed
-        Inventario inv = new Inventario();
+        formInventario inv = new formInventario();
         inv.setSize(709,700);
         inv.setLocation(0,0);
 
@@ -453,7 +440,7 @@ public class formHomeAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_menuItem6ActionPerformed
 
     private void menuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItem7ActionPerformed
-        Categoria ctg = new Categoria();
+        formCategorias ctg = new formCategorias();
         ctg.setSize(709,700);
         ctg.setLocation(0,0);
 
@@ -464,7 +451,7 @@ public class formHomeAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_menuItem7ActionPerformed
 
     private void menuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItem8ActionPerformed
-        Medidas mdd = new Medidas();
+        formMedidas mdd = new formMedidas();
         mdd.setSize(709,700);
         mdd.setLocation(0,0);
 
@@ -475,7 +462,7 @@ public class formHomeAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_menuItem8ActionPerformed
 
     private void menuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItem9ActionPerformed
-        Usuarios usu = new Usuarios();
+        formUsuarios usu = new formUsuarios();
         usu.setSize(709,700);
         usu.setLocation(0,0);
 
@@ -486,7 +473,7 @@ public class formHomeAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_menuItem9ActionPerformed
 
     private void menuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItem10ActionPerformed
-        Roles rl = new Roles();
+        formRoles rl = new formRoles();
         rl .setSize(709,700);
         rl .setLocation(0,0);
 
@@ -513,21 +500,23 @@ public class formHomeAdmin extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(formHomeAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(formHome.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(formHomeAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(formHome.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(formHomeAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(formHome.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(formHomeAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(formHome.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new formHomeAdmin().setVisible(true);
+                new formHome().setVisible(true);
             }
         });
     }

@@ -2,18 +2,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package VistaSecundaria;
+package vista;
 
 /**
  *
  * @author Kevin Barzola
  */
-public class Entradas extends javax.swing.JPanel {
+public class formEntradas extends javax.swing.JPanel {
 
     /**
      * Creates new form Entradas
      */
-    public Entradas() {
+    public formEntradas() {
         initComponents();
     }
 
@@ -65,16 +65,13 @@ public class Entradas extends javax.swing.JPanel {
         jLabel2.setText("ENTRADAS");
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Codigo");
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Subtotal");
 
         jTextField4.setBackground(new java.awt.Color(224, 224, 224));
         jTextField4.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        jTextField4.setForeground(new java.awt.Color(0, 0, 0));
         jTextField4.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
         jTextField4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -83,12 +80,10 @@ public class Entradas extends javax.swing.JPanel {
         });
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Descuento");
 
         jTextField6.setBackground(new java.awt.Color(224, 224, 224));
         jTextField6.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        jTextField6.setForeground(new java.awt.Color(0, 0, 0));
         jTextField6.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
         jTextField6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -97,16 +92,13 @@ public class Entradas extends javax.swing.JPanel {
         });
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Estado");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Total");
 
         jTextField1.setBackground(new java.awt.Color(224, 224, 224));
         jTextField1.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(0, 0, 0));
         jTextField1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -115,12 +107,10 @@ public class Entradas extends javax.swing.JPanel {
         });
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("IVA");
 
         jTextField7.setBackground(new java.awt.Color(224, 224, 224));
         jTextField7.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        jTextField7.setForeground(new java.awt.Color(0, 0, 0));
         jTextField7.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
         jTextField7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -179,12 +169,10 @@ public class Entradas extends javax.swing.JPanel {
         jLabel10.setText("DETALLES DE ");
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
         jLabel11.setText("Subtotal");
 
         jTextField5.setBackground(new java.awt.Color(224, 224, 224));
         jTextField5.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        jTextField5.setForeground(new java.awt.Color(0, 0, 0));
         jTextField5.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
         jTextField5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -193,12 +181,10 @@ public class Entradas extends javax.swing.JPanel {
         });
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setText("Descuento");
 
         jTextField9.setBackground(new java.awt.Color(224, 224, 224));
         jTextField9.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        jTextField9.setForeground(new java.awt.Color(0, 0, 0));
         jTextField9.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
         jTextField9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -207,12 +193,10 @@ public class Entradas extends javax.swing.JPanel {
         });
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(0, 0, 0));
         jLabel13.setText("IVA");
 
         jTextField10.setBackground(new java.awt.Color(224, 224, 224));
         jTextField10.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        jTextField10.setForeground(new java.awt.Color(0, 0, 0));
         jTextField10.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
         jTextField10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -221,12 +205,10 @@ public class Entradas extends javax.swing.JPanel {
         });
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(0, 0, 0));
         jLabel14.setText("Total");
 
         jTextField2.setBackground(new java.awt.Color(224, 224, 224));
         jTextField2.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        jTextField2.setForeground(new java.awt.Color(0, 0, 0));
         jTextField2.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -235,18 +217,15 @@ public class Entradas extends javax.swing.JPanel {
         });
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(0, 0, 0));
         jLabel15.setText("Estado");
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "I", "A" }));
 
         jLabel16.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(0, 0, 0));
         jLabel16.setText("Fecha de entrada");
 
         jTextField11.setBackground(new java.awt.Color(224, 224, 224));
         jTextField11.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        jTextField11.setForeground(new java.awt.Color(0, 0, 0));
         jTextField11.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
         jTextField11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -256,7 +235,6 @@ public class Entradas extends javax.swing.JPanel {
 
         jTextField12.setBackground(new java.awt.Color(224, 224, 224));
         jTextField12.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        jTextField12.setForeground(new java.awt.Color(0, 0, 0));
         jTextField12.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
         jTextField12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

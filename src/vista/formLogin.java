@@ -127,7 +127,7 @@ public class formLogin extends javax.swing.JFrame {
                                 .addGap(92, 92, 92)
                                 .addComponent(labCopy))
                             .addGroup(panLoginLayout.createSequentialGroup()
-                                .addGap(126, 126, 126)
+                                .addGap(125, 125, 125)
                                 .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addComponent(labLoginImg)
@@ -152,9 +152,9 @@ public class formLogin extends javax.swing.JFrame {
                 .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(sepPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
+                .addGap(26, 26, 26)
                 .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(53, 53, 53)
+                .addGap(63, 63, 63)
                 .addComponent(labCopy)
                 .addContainerGap())
             .addComponent(labLoginImg, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -179,7 +179,7 @@ public class formLogin extends javax.swing.JFrame {
             if(acc.login(user)){
                 //this.setVisible(false);
                 this.dispose();
-                formHomeAdmin dashboard = new formHomeAdmin(user);
+                formHome dashboard = new formHome(user);
                 dashboard.setVisible(true);
             }else{
                 JOptionPane.showMessageDialog(null, "Usuario y/o contraseña incorrectos.");

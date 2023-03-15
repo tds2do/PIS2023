@@ -41,6 +41,15 @@ public class formClienteEdit extends javax.swing.JFrame {
         client = cliDAO.leer(id);
         
         txtRUC.setText(client.getRuc());
+        txtRazonSocial.setText(client.getRazonSocial());
+        txtPrimerNombre.setText(client.getPrimerNombre());
+        txtSegundoNombre.setText(client.getSegundoNombre());
+        txtPrimerApellido.setText(client.getPrimerApellido());
+        txtSegundoApellido.setText(client.getSegundoApellido());
+        txtTelefono.setText(client.getTelefono());
+        txtCelular.setText(client.getCelular());
+        txtCorreo.setText(client.getCorreo());
+        txtDireccion.setText(client.getDireccion());
     }
     
     

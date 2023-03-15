@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+
 /**
  *
  * @author Jonathan
@@ -42,6 +43,7 @@ public class ClienteDAO implements ICliente{
                 + null+", "
                 + null+", "
                 + null+")";
+        
         if(bd.update(sql) > 0){
             return true;
         }
@@ -113,7 +115,7 @@ public class ClienteDAO implements ICliente{
 
     @Override
     public Cliente leer(int idCliente) {
-        String sql = "SELECT * FROM Categoria WHERE idCategoria="+String.valueOf(idCliente);
+        String sql = "SELECT * FROM Cliente WHERE idCliente="+String.valueOf(idCliente);
         List<Map> data = bd.execute(sql);
         Cliente cli = new Cliente();
         for(Map da : data){

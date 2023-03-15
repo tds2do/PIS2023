@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+
 /**
  *
  * @author Jonathan
@@ -42,6 +43,7 @@ public class ClienteDAO implements ICliente{
                 + null+", "
                 + null+", "
                 + null+")";
+        
         if(bd.update(sql) > 0){
             return true;
         }
@@ -62,8 +64,8 @@ public class ClienteDAO implements ICliente{
                 + cliente.getTelefono()+"',celular='"                
                 + cliente.getCelular()+"',fechaModifica='"
                 + cliente.getFechaModifica().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")) +"',usuarioModifica='"
-                + cliente.getUsuarioModifica()+"' WHERE idProveedor="
-                + cliente.getIdCliente();
+                + cliente.getUsuarioModifica()+"' WHERE idCliente="
+                + String.valueOf(cliente.getIdCliente());
         
         if(bd.update(sql) > 0){
             return true;
@@ -94,6 +96,7 @@ public class ClienteDAO implements ICliente{
         List<Cliente> clientes = new ArrayList();
         for(Map row : rows){
             Cliente cli = new Cliente();
+            cli.setIdCliente((int) row.get("idCliente"));
             cli.setRuc((String) row.get("ruc"));
             cli.setRazonSocial((String) row.get("razonSocial"));
             cli.setPrimerNombre((String) row.get("primerNombre"));
@@ -112,7 +115,7 @@ public class ClienteDAO implements ICliente{
 
     @Override
     public Cliente leer(int idCliente) {
-        String sql = "SELECT * FROM Categoria WHERE idCategoria="+idCliente;
+        String sql = "SELECT * FROM Cliente WHERE idCliente="+String.valueOf(idCliente);
         List<Map> data = bd.execute(sql);
         Cliente cli = new Cliente();
         for(Map da : data){

@@ -5,9 +5,13 @@
 package DAO;
 
 import Interfaces.IProducto;
+import Modelo.Cliente;
 import Modelo.DataBase;
 import Modelo.Producto;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -80,11 +84,44 @@ public class ProductoDAO implements IProducto{
     }
 
     @Override
-    public List<Producto> consultar() {
-        
+    public List<Producto> listar() {
         String sql = "SELECT * FROM Producto WHERE estado = 1";
-        List rows = bd.execute(sql);
-        return rows;
+        List<Map> rows = bd.execute(sql);
+        List<Producto> productos = new ArrayList();
+        for(Map row : rows){
+            Producto pro = new Producto();
+            pro.setIdProducto((int) row.get("idProducto"));
+            pro.setCodigo((String) row.get("codigo"));
+            pro.setNombre((String) row.get("nombre"));
+            pro.setDescripcion((String) row.get("descripcion"));
+            pro.setIdCategoria((int) row.get("idCategoria"));
+            pro.setIdMedida((int) row.get("idMedida"));
+            pro.setPrecio((float) row.get("precio"));  
+            pro.setPorcentajeIva((float) row.get("procentajeIva"));
+            pro.setFechaCaducidad((LocalDate) row.get("fechaCaducidad"));  
+            productos.add(pro);
+        }
+        return productos;
+    }
+
+    @Override
+    public Producto leer(int idProducto) {
+
+        String sql = "SELECT * FROM Producto WHERE idProducto="+String.valueOf(idProducto);
+        List<Map> data = bd.execute(sql);
+        Producto pro = new Producto();
+        for(Map da : data){
+            pro.setIdProducto((int) da.get("idProducto"));
+            pro.setCodigo((String) da.get("codigo"));
+            pro.setNombre((String) da.get("nombre"));
+            pro.setDescripcion((String) da.get("descripcion"));
+            pro.setIdCategoria((int) da.get("idCategoria"));
+            pro.setIdMedida((int) da.get("idMedida"));
+            pro.setPrecio((float) da.get("precio"));  
+            pro.setPorcentajeIva((float) da.get("procentajeIva"));
+            pro.setFechaCaducidad((LocalDate) da.get("fechaCaducidad")); 
+        }
+        return pro;
         
     }
         

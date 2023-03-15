@@ -35,7 +35,7 @@ public class formClientes extends javax.swing.JPanel {
         
     }
     
-    public void getClientes(){
+    public static void getClientes(){
         ClienteDAO cliDAO = new ClienteDAO();
         List<Cliente> clientes = cliDAO.listar();
 
@@ -50,7 +50,6 @@ public class formClientes extends javax.swing.JPanel {
                 cli.getDireccion()
             });
             
-            System.out.println(cli.getCorreo());
         }
         
     }
@@ -72,6 +71,7 @@ public class formClientes extends javax.swing.JPanel {
         btnModificar = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(224, 224, 224));
+        setPreferredSize(new java.awt.Dimension(900, 500));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -81,18 +81,17 @@ public class formClientes extends javax.swing.JPanel {
 
         tabListaClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null}
+
             },
             new String [] {
-                "Id", "RUC", "Razón Social", "Primer Nombre", "SegundoNombre", "Primer Apellido", "Segundo Apellido", "Teléfono", "Celular", "Correo", "Dirección"
+                "Id", "RUC", "Razón Social", "Primer Nombre", "Segundo Nombre", "Primer Apellido", "Segundo Apellido", "Teléfono", "Celular", "Correo", "Dirección"
             }
         ));
+        tabListaClientes.setMinimumSize(new java.awt.Dimension(0, 0));
+        tabListaClientes.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(tabListaClientes);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 670, -1));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 860, 280));
 
         btnEliminar.setBackground(new java.awt.Color(255, 102, 102));
         btnEliminar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -131,7 +130,13 @@ public class formClientes extends javax.swing.JPanel {
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         
         int fila = tabListaClientes.getSelectedRow();
-        if(fila < 0){
+        Cliente client = new Cliente();
+        ClienteDAO cliDAO = new ClienteDAO();
+
+        if(fila >= 0){
+            
+            String id = (String) tabListaClientes.getValueAt(fila, 0);
+            
         }else{
             JOptionPane.showMessageDialog(null, "Pr favor, debe seleccionar un registro.");
         }
@@ -140,8 +145,8 @@ public class formClientes extends javax.swing.JPanel {
 
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
         
-        formClienteAdd regUsu = new formClienteAdd(sysUser);
-        regUsu.setVisible(true);
+        formClienteAdd regClient = new formClienteAdd(sysUser);
+        regClient.setVisible(true);
         
         
     }//GEN-LAST:event_btnNuevoActionPerformed
@@ -149,7 +154,11 @@ public class formClientes extends javax.swing.JPanel {
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
         
         int fila = tabListaClientes.getSelectedRow();
-        if(fila < 0){
+        if(fila >= 0){
+            String id = (String) tabListaClientes.getValueAt(fila, 0);
+            formClienteEdit editClient = new formClienteEdit(id, sysUser);
+            editClient.setVisible(true);
+            
         }else{
             JOptionPane.showMessageDialog(null, "Pr favor, debe seleccionar un registro.");
         }
@@ -163,6 +172,6 @@ public class formClientes extends javax.swing.JPanel {
     private javax.swing.JButton btnNuevo;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tabListaClientes;
+    public static javax.swing.JTable tabListaClientes;
     // End of variables declaration//GEN-END:variables
 }

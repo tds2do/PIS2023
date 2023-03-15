@@ -9,28 +9,41 @@ import Modelo.Cliente;
 import Modelo.Usuario;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author Jonathan
  */
-public class formClienteAdd extends javax.swing.JFrame {
+public class formClienteEdit extends javax.swing.JFrame {
 
     Usuario sysUser;
     /**
      * Creates new form formUsuarioAdd
      */
-    public formClienteAdd() {
+    public formClienteEdit() {
         initComponents();
         this.setLocationRelativeTo(null);
     }
 
-    public formClienteAdd(Usuario user) {
+    public formClienteEdit(String id, Usuario user) {
         initComponents();
         this.sysUser = user;
         this.setLocationRelativeTo(null);
+        
     }
+    
+    public void getDatos(int id){
+        
+        Cliente client = new Cliente();
+        ClienteDAO cliDAO = new ClienteDAO();
+        client = cliDAO.leer(id);
+        
+        txtRUC.setText(client.getRuc());
+    }
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -76,7 +89,7 @@ public class formClienteAdd extends javax.swing.JFrame {
 
         labTitle.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         labTitle.setForeground(new java.awt.Color(11, 58, 82));
-        labTitle.setText("Registrar Cliente");
+        labTitle.setText("Modificar Cliente");
         panMain.add(labTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
 
         labRUC.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -293,6 +306,8 @@ public class formClienteAdd extends javax.swing.JFrame {
         Cliente client = new Cliente();
         ClienteDAO cliDAO = new ClienteDAO();
         
+        System.out.print(client);
+        
         if(!txtRUC.getText().equals("") && !txtRazonSocial.getText().equals("") && 
                 !txtPrimerNombre.getText().equals("") && !txtSegundoNombre.getText().equals("") &&
                 !txtPrimerApellido.getText().equals("") && !txtSegundoApellido.getText().equals("") &&
@@ -342,6 +357,7 @@ public class formClienteAdd extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Por favor, complete todos los campos del formulario.");
         }
         
+        
     }//GEN-LAST:event_btnGuardar1ActionPerformed
 
     /**
@@ -361,21 +377,23 @@ public class formClienteAdd extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(formClienteAdd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(formClienteEdit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(formClienteAdd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(formClienteEdit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(formClienteAdd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(formClienteEdit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(formClienteAdd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(formClienteEdit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new formClienteAdd().setVisible(true);
+                new formClienteEdit().setVisible(true);
             }
         });
     }

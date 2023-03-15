@@ -7,7 +7,9 @@ package vista;
 import DAO.ClienteDAO;
 import Modelo.Cliente;
 import Modelo.Usuario;
+import java.time.LocalDateTime;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -34,7 +36,7 @@ public class formClientes extends javax.swing.JPanel {
         
     }
     
-    public void getClientes(){
+    public static void getClientes(){
         ClienteDAO cliDAO = new ClienteDAO();
         List<Cliente> clientes = cliDAO.listar();
 
@@ -44,12 +46,11 @@ public class formClientes extends javax.swing.JPanel {
         
         for(Cliente cli :clientes){
             
-            model.addRow(new String[]{cli.getRuc(), cli.getRazonSocial(), cli.getPrimerNombre(), cli.getSegundoNombre(), 
+            model.addRow(new String[]{String.valueOf(cli.getIdCliente()), cli.getRuc(), cli.getRazonSocial(), cli.getPrimerNombre(), cli.getSegundoNombre(), 
                 cli.getPrimerApellido(), cli.getSegundoApellido(), cli.getTelefono(), cli.getCelular(), cli.getCorreo(),
                 cli.getDireccion()
             });
             
-            System.out.println(cli.getCorreo());
         }
         
     }
@@ -71,6 +72,7 @@ public class formClientes extends javax.swing.JPanel {
         btnModificar = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(224, 224, 224));
+        setPreferredSize(new java.awt.Dimension(900, 500));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -80,18 +82,17 @@ public class formClientes extends javax.swing.JPanel {
 
         tabListaClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null}
+
             },
             new String [] {
-                "RUC", "Razón Social", "Primer Nombre", "SegundoNombre", "Primer Apellido", "Segundo Apellido", "Teléfono", "Celular", "Correo", "Dirección"
+                "Id", "RUC", "Razón Social", "Primer Nombre", "Segundo Nombre", "Primer Apellido", "Segundo Apellido", "Teléfono", "Celular", "Correo", "Dirección"
             }
         ));
+        tabListaClientes.setMinimumSize(new java.awt.Dimension(0, 0));
+        tabListaClientes.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(tabListaClientes);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 670, -1));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 860, 280));
 
         btnEliminar.setBackground(new java.awt.Color(255, 102, 102));
         btnEliminar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -128,19 +129,53 @@ public class formClientes extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        // TODO add your handling code here:
+        
+        int fila = tabListaClientes.getSelectedRow();
+        Cliente client = new Cliente();
+        ClienteDAO cliDAO = new ClienteDAO();
+
+        if(fila >= 0){
+            
+            String id = (String) tabListaClientes.getValueAt(fila, 0);
+            
+            int res = JOptionPane.showConfirmDialog(null, "¿Desea eliminar el registro?");
+            
+            if(res == 0){
+                client.setIdCliente(Integer.valueOf(id));
+                client.setEstado(0);
+                client.setFechaElimina(LocalDateTime.now());
+                client.setUsuarioElimina(sysUser.getUsername());
+                cliDAO.eliminar(client);
+                getClientes();
+            }
+            //System.out.println(res);
+            
+        }else{
+            JOptionPane.showMessageDialog(null, "Por favor, debe seleccionar un registro.");
+        }
+        
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
         
-        formClienteAdd regUsu = new formClienteAdd(sysUser);
-        regUsu.setVisible(true);
+        formClienteAdd regClient = new formClienteAdd(sysUser);
+        regClient.setVisible(true);
         
         
     }//GEN-LAST:event_btnNuevoActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
-        // TODO add your handling code here:
+        
+        int fila = tabListaClientes.getSelectedRow();
+        if(fila >= 0){
+            String id = (String) tabListaClientes.getValueAt(fila, 0);
+            formClienteEdit editClient = new formClienteEdit(id, sysUser);
+            editClient.setVisible(true);
+            
+        }else{
+            JOptionPane.showMessageDialog(null, "Por favor, debe seleccionar un registro.");
+        }
+        
     }//GEN-LAST:event_btnModificarActionPerformed
 
 
@@ -150,6 +185,6 @@ public class formClientes extends javax.swing.JPanel {
     private javax.swing.JButton btnNuevo;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tabListaClientes;
+    public static javax.swing.JTable tabListaClientes;
     // End of variables declaration//GEN-END:variables
 }

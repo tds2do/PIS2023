@@ -304,7 +304,7 @@ public class formHome extends javax.swing.JFrame {
                 .addGroup(panHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panHeaderLayout.createSequentialGroup()
                         .addComponent(labNameEmpresa)
-                        .addGap(0, 421, Short.MAX_VALUE))
+                        .addGap(0, 612, Short.MAX_VALUE))
                     .addGroup(panHeaderLayout.createSequentialGroup()
                         .addComponent(labFechaActual)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -324,6 +324,7 @@ public class formHome extends javax.swing.JFrame {
         );
 
         panContent.setBackground(new java.awt.Color(224, 224, 224));
+        panContent.setMinimumSize(new java.awt.Dimension(900, 0));
 
         javax.swing.GroupLayout panContentLayout = new javax.swing.GroupLayout(panContent);
         panContent.setLayout(panContentLayout);
@@ -343,7 +344,7 @@ public class formHome extends javax.swing.JFrame {
             .addGroup(panContainerLayout.createSequentialGroup()
                 .addComponent(panMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panContent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(panContent, javax.swing.GroupLayout.DEFAULT_SIZE, 900, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(panContainerLayout.createSequentialGroup()
                 .addGap(264, 264, 264)
@@ -375,7 +376,7 @@ public class formHome extends javax.swing.JFrame {
 
     private void menuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItem1ActionPerformed
         formClientes clt = new formClientes(sysUser);
-        clt.setSize(709,700);
+        clt.setSize(900,700);
         clt.setLocation(0,0);
 
         panContent.removeAll();
@@ -385,7 +386,7 @@ public class formHome extends javax.swing.JFrame {
     }//GEN-LAST:event_menuItem1ActionPerformed
 
     private void menuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItem2ActionPerformed
-       formProveedores prv = new formProveedores();
+       formProveedores prv = new formProveedores(sysUser);
         prv.setSize(709, 700);
         prv.setLocation(0,0);
 

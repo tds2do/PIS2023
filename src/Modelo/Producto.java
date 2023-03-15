@@ -4,6 +4,7 @@
  */
 package Modelo;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 /**
@@ -19,7 +20,7 @@ public class Producto extends RegistroAuditoria{
     private int idMedida;
     private float precio;
     private float porcentajeIva;
-    private String fechaCaducidad;
+    private LocalDate fechaCaducidad;
     
     
     public Producto(){
@@ -89,11 +90,11 @@ public class Producto extends RegistroAuditoria{
         this.porcentajeIva = porcentajeIva;
     }
 
-    public String getFechaCaducidad() {
+    public LocalDate getFechaCaducidad() {
         return fechaCaducidad;
     }
 
-    public void setFechaCaducidad(String fechaCaducidad) {
+    public void setFechaCaducidad(LocalDate fechaCaducidad) {
         this.fechaCaducidad = fechaCaducidad;
     }
 

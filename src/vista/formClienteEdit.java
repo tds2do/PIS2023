@@ -31,10 +31,10 @@ public class formClienteEdit extends javax.swing.JFrame {
         initComponents();
         this.sysUser = user;
         this.setLocationRelativeTo(null);
-        
+        getCliente(Integer.valueOf(id));
     }
     
-    public void getDatos(int id){
+    public void getCliente(int id){
         
         Cliente client = new Cliente();
         ClienteDAO cliDAO = new ClienteDAO();

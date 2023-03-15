@@ -113,7 +113,7 @@ public class ClienteDAO implements ICliente{
 
     @Override
     public Cliente leer(int idCliente) {
-        String sql = "SELECT * FROM Categoria WHERE idCategoria="+idCliente;
+        String sql = "SELECT * FROM Categoria WHERE idCategoria="+String.valueOf(idCliente);
         List<Map> data = bd.execute(sql);
         Cliente cli = new Cliente();
         for(Map da : data){

@@ -15,5 +15,6 @@ public interface IProveedor {
     public Boolean registrar(Proveedor proveedor);
     public Boolean modificar(Proveedor proveedor);
     public Boolean eliminar(Proveedor proveedor);
-    public List<Proveedor> consultar();    
+    public List<Proveedor> listar();  
+    public Proveedor leer(int idProveedor);
 }

@@ -58,13 +58,14 @@ public class formProductoAdd extends javax.swing.JFrame {
         labPrecio = new javax.swing.JLabel();
         txtPrecio = new javax.swing.JTextField();
         labPorcentajeIva = new javax.swing.JLabel();
-        calFechaCaducidad = new com.toedter.calendar.JDateChooser();
         labCodigo = new javax.swing.JLabel();
         listPorcentajeIva = new javax.swing.JComboBox<>();
         listCategoria = new javax.swing.JComboBox<>();
         labDescripcion = new javax.swing.JLabel();
         labCategoria = new javax.swing.JLabel();
         listMedida = new javax.swing.JComboBox<>();
+        calFechaCaducidad = new com.toedter.calendar.JDateChooser();
+        txtFechaCaducidad = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -156,7 +157,6 @@ public class formProductoAdd extends javax.swing.JFrame {
         labPorcentajeIva.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         labPorcentajeIva.setText("Porcentaje IVA");
         panMain.add(labPorcentajeIva, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 400, -1, -1));
-        panMain.add(calFechaCaducidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 80, 200, 30));
 
         labCodigo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         labCodigo.setText("Código");
@@ -178,6 +178,10 @@ public class formProductoAdd extends javax.swing.JFrame {
 
         listMedida.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         panMain.add(listMedida, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 350, 200, 30));
+        panMain.add(calFechaCaducidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 80, 190, 30));
+
+        txtFechaCaducidad.setText("jFormattedTextField1");
+        panMain.add(txtFechaCaducidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 30, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -307,6 +311,7 @@ public class formProductoAdd extends javax.swing.JFrame {
     private javax.swing.JPanel panMain;
     private javax.swing.JTextField txtCodigo;
     private javax.swing.JTextArea txtDescripcion;
+    private javax.swing.JFormattedTextField txtFechaCaducidad;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtPrecio;
     // End of variables declaration//GEN-END:variables

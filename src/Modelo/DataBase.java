@@ -22,7 +22,7 @@ import java.util.List;
  */
 public class DataBase{
 
-    protected final String URL = "jdbc:mysql://localhost:3306/inventario";
+    protected final String URL = "jdbc:mysql://localhost:3307/inventario";
     protected final String USER = "root";
     protected final String CLAVE = "";
     private Connection cnx =  null;

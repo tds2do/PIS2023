@@ -4,58 +4,33 @@
  */
 package vista;
 
-import DAO.ClienteDAO;
-import Modelo.Cliente;
+import DAO.ProveedorDAO;
+import Modelo.Proveedor;
 import Modelo.Usuario;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.List;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author Jonathan
  */
-public class formClienteEdit extends javax.swing.JFrame {
-    
-    String idCliente;
+public class formProveedorAdd extends javax.swing.JFrame {
 
     Usuario sysUser;
     /**
      * Creates new form formUsuarioAdd
      */
-    public formClienteEdit() {
+    public formProveedorAdd() {
         initComponents();
         this.setLocationRelativeTo(null);
     }
 
-    public formClienteEdit(String id, Usuario user) {
+    public formProveedorAdd(Usuario user) {
         initComponents();
         this.sysUser = user;
-        this.idCliente = id;
         this.setLocationRelativeTo(null);
-        getDatosCliente();
     }
-    
-    public void getDatosCliente(){
-        
-        Cliente client = new Cliente();
-        ClienteDAO cliDAO = new ClienteDAO();
-        client = cliDAO.leer(Integer.valueOf(idCliente));
-        
-        txtRUC.setText(client.getRuc());
-        txtRazonSocial.setText(client.getRazonSocial());
-        txtPrimerNombre.setText(client.getPrimerNombre());
-        txtSegundoNombre.setText(client.getSegundoNombre());
-        txtPrimerApellido.setText(client.getPrimerApellido());
-        txtSegundoApellido.setText(client.getSegundoApellido());
-        txtTelefono.setText(client.getTelefono());
-        txtCelular.setText(client.getCelular());
-        txtCorreo.setText(client.getCorreo());
-        txtDireccion.setText(client.getDireccion());
-    }
-    
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -101,7 +76,7 @@ public class formClienteEdit extends javax.swing.JFrame {
 
         labTitle.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         labTitle.setForeground(new java.awt.Color(11, 58, 82));
-        labTitle.setText("Modificar Cliente");
+        labTitle.setText("Registrar Proveedor");
         panMain.add(labTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
 
         labRUC.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -315,48 +290,43 @@ public class formClienteEdit extends javax.swing.JFrame {
 
     private void btnGuardar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardar1ActionPerformed
         
-        Cliente client = new Cliente();
-        ClienteDAO cliDAO = new ClienteDAO();
+        Proveedor pro = new Proveedor();
+        ProveedorDAO proDAO = new ProveedorDAO();
         
-
         if(!txtRUC.getText().equals("") && !txtRazonSocial.getText().equals("") && 
                 !txtPrimerNombre.getText().equals("") && !txtSegundoNombre.getText().equals("") &&
                 !txtPrimerApellido.getText().equals("") && !txtSegundoApellido.getText().equals("") &&
                 !txtTelefono.getText().equals("") && !txtCelular.getText().equals("") &&
                 !txtCorreo.getText().equals("") && !txtDireccion.getText().equals("")){
-
-            client.setIdCliente(Integer.valueOf(idCliente));
-
-            client.setRuc((String)txtRUC.getText());
-            client.setRazonSocial((String)txtRazonSocial.getText());
-            client.setPrimerNombre((String)txtPrimerNombre.getText());
-            client.setSegundoNombre((String)txtSegundoNombre.getText());
-            client.setPrimerApellido((String)txtPrimerApellido.getText());
-            client.setSegundoApellido((String)txtSegundoApellido.getText());
-            client.setTelefono((String)txtTelefono.getText());
-            client.setCelular((String)txtCelular.getText());
-            client.setCorreo((String)txtCorreo.getText());
-            client.setDireccion((String)txtDireccion.getText());
             
-            if(client.getRuc().length() > 9 && client.getRuc().length() < 14){
+            pro.setRuc((String)txtRUC.getText());
+            pro.setRazonSocial((String)txtRazonSocial.getText());
+            pro.setPrimerNombre((String)txtPrimerNombre.getText());
+            pro.setSegundoNombre((String)txtSegundoNombre.getText());
+            pro.setPrimerApellido((String)txtPrimerApellido.getText());
+            pro.setSegundoApellido((String)txtSegundoApellido.getText());
+            pro.setTelefono((String)txtTelefono.getText());
+            pro.setCelular((String)txtCelular.getText());
+            pro.setCorreo((String)txtCorreo.getText());
+            pro.setDireccion((String)txtDireccion.getText());
+            
+            if(pro.getRuc().length() > 9 && pro.getRuc().length() < 14){
                 
-                if(client.getTelefono().length() == 9){
-                    if(client.getCelular().length() == 10){
+                if(pro.getTelefono().length() == 9){
+                    if(pro.getCelular().length() == 10){
 
-                        client.setEstado(1);
-
-                        client.setFechaModifica(LocalDateTime.now());
-                        client.setUsuarioModifica(sysUser.getUsername());
-
-                        if(cliDAO.modificar(client)){                           
-
+                        pro.setEstado(1);
+                        pro.setFechaIngreso(LocalDateTime.now());
+                        pro.setUsuarioIngreso(sysUser.getUsername());
+                            
+                        if(proDAO.registrar(pro)){                           
                             this.dispose();
-                            formClientes.getClientes();
+                            formProveedores.getProveedores();
 
                         }else{
-                            JOptionPane.showMessageDialog(null, "No se guradaron los datos.");
+                            JOptionPane.showMessageDialog(null, "No se guardaron los datos.");
                         }
-
+                        
                     }else{
                         JOptionPane.showMessageDialog(null, "El celular debe tener 10 dígitos.");
                     }
@@ -371,7 +341,6 @@ public class formClienteEdit extends javax.swing.JFrame {
         }else{
             JOptionPane.showMessageDialog(null, "Por favor, complete todos los campos del formulario.");
         }
-        
         
     }//GEN-LAST:event_btnGuardar1ActionPerformed
 
@@ -392,14 +361,18 @@ public class formClienteEdit extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(formClienteEdit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(formProveedorAdd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(formClienteEdit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(formProveedorAdd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(formClienteEdit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(formProveedorAdd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(formClienteEdit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(formProveedorAdd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -408,7 +381,7 @@ public class formClienteEdit extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new formClienteEdit().setVisible(true);
+                new formProveedorAdd().setVisible(true);
             }
         });
     }

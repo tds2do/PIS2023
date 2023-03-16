@@ -147,7 +147,7 @@ VALUES ('admin','41E5653FC7AEB894026D6BB7B2DB7F65902B454945FA8FD65A6327047B5277F
 -- Parametro general
 
 INSERT INTO `parametrogeneral`( `nombre`, `valor`, `abreviatura`, `estado`, `fechaIngreso`, `usuarioIngreso`, `fechaModifica`, `usuarioModifica`, `fechaElimina`, `usuarioElimina`) 
-VALUES ('Empresa','Farmacia El SuperDescuento','EMP',1,NOW(),'SERVER',null,null,null,null);
+VALUES ('Empresa','Farmacia El SuperDescuento','EMPR',1,NOW(),'SERVER',null,null,null,null);
 
 
 

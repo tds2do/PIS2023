@@ -7,6 +7,7 @@ package vista;
 import DAO.ClienteDAO;
 import Modelo.Cliente;
 import Modelo.Usuario;
+import java.time.LocalDateTime;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -137,8 +138,21 @@ public class formClientes extends javax.swing.JPanel {
             
             String id = (String) tabListaClientes.getValueAt(fila, 0);
             
+
         }else{
-            JOptionPane.showMessageDialog(null, "Pr favor, debe seleccionar un registro.");
+            JOptionPane.showMessageDialog(null, "Por favor, debe seleccionar un registro.");
+            int res = JOptionPane.showConfirmDialog(null, "¿Desea eliminar el registro?");
+            
+            if(res == 0){
+                client.setIdCliente(Integer.valueOf(id));
+                client.setEstado(0);
+                client.setFechaElimina(LocalDateTime.now());
+                client.setUsuarioElimina(sysUser.getUsername());
+                cliDAO.eliminar(client);
+                getClientes();
+            }
+            //System.out.println(res);
+            
         }
         
     }//GEN-LAST:event_btnEliminarActionPerformed
@@ -160,7 +174,8 @@ public class formClientes extends javax.swing.JPanel {
             editClient.setVisible(true);
             
         }else{
-            JOptionPane.showMessageDialog(null, "Pr favor, debe seleccionar un registro.");
+
+            JOptionPane.showMessageDialog(null, "Por favor, debe seleccionar un registro.");
         }
         
     }//GEN-LAST:event_btnModificarActionPerformed

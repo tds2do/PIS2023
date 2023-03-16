@@ -64,8 +64,8 @@ public class ClienteDAO implements ICliente{
                 + cliente.getTelefono()+"',celular='"                
                 + cliente.getCelular()+"',fechaModifica='"
                 + cliente.getFechaModifica().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")) +"',usuarioModifica='"
-                + cliente.getUsuarioModifica()+"' WHERE idProveedor="
-                + cliente.getIdCliente();
+                + cliente.getUsuarioModifica()+"' WHERE idCliente="
+                + String.valueOf(cliente.getIdCliente());
         
         if(bd.update(sql) > 0){
             return true;

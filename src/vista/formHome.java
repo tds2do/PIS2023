@@ -386,7 +386,7 @@ public class formHome extends javax.swing.JFrame {
     }//GEN-LAST:event_menuItem1ActionPerformed
 
     private void menuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItem2ActionPerformed
-       formProveedores prv = new formProveedores();
+       formProveedores prv = new formProveedores(sysUser);
         prv.setSize(709, 700);
         prv.setLocation(0,0);
 

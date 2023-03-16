@@ -408,7 +408,7 @@ public class formHome extends javax.swing.JFrame {
     }//GEN-LAST:event_menuItem3ActionPerformed
 
     private void menuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItem4ActionPerformed
-        formEntradas entr = new formEntradas();
+        formRegistroEntradas entr = new formRegistroEntradas(sysUser);
         entr.setSize(900,700);
         entr.setLocation(0,0);
 

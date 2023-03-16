@@ -41,7 +41,6 @@ public class Entrada extends Movimiento{
         this.fechaEntrada = fechaEntrada;
     }
 
-
     
     
 }

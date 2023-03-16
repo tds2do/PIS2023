@@ -138,6 +138,9 @@ public class formClientes extends javax.swing.JPanel {
             
             String id = (String) tabListaClientes.getValueAt(fila, 0);
             
+
+        }else{
+            JOptionPane.showMessageDialog(null, "Por favor, debe seleccionar un registro.");
             int res = JOptionPane.showConfirmDialog(null, "¿Desea eliminar el registro?");
             
             if(res == 0){
@@ -150,8 +153,6 @@ public class formClientes extends javax.swing.JPanel {
             }
             //System.out.println(res);
             
-        }else{
-            JOptionPane.showMessageDialog(null, "Por favor, debe seleccionar un registro.");
         }
         
     }//GEN-LAST:event_btnEliminarActionPerformed
@@ -173,6 +174,7 @@ public class formClientes extends javax.swing.JPanel {
             editClient.setVisible(true);
             
         }else{
+
             JOptionPane.showMessageDialog(null, "Por favor, debe seleccionar un registro.");
         }
         

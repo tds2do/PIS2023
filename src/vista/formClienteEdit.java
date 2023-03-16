@@ -19,6 +19,7 @@ import javax.swing.JOptionPane;
 public class formClienteEdit extends javax.swing.JFrame {
     
     String idCliente;
+
     Usuario sysUser;
     /**
      * Creates new form formUsuarioAdd
@@ -317,12 +318,15 @@ public class formClienteEdit extends javax.swing.JFrame {
         Cliente client = new Cliente();
         ClienteDAO cliDAO = new ClienteDAO();
         
+
         if(!txtRUC.getText().equals("") && !txtRazonSocial.getText().equals("") && 
                 !txtPrimerNombre.getText().equals("") && !txtSegundoNombre.getText().equals("") &&
                 !txtPrimerApellido.getText().equals("") && !txtSegundoApellido.getText().equals("") &&
                 !txtTelefono.getText().equals("") && !txtCelular.getText().equals("") &&
                 !txtCorreo.getText().equals("") && !txtDireccion.getText().equals("")){
+
             client.setIdCliente(Integer.valueOf(idCliente));
+
             client.setRuc((String)txtRUC.getText());
             client.setRazonSocial((String)txtRazonSocial.getText());
             client.setPrimerNombre((String)txtPrimerNombre.getText());
@@ -340,10 +344,12 @@ public class formClienteEdit extends javax.swing.JFrame {
                     if(client.getCelular().length() == 10){
 
                         client.setEstado(1);
+
                         client.setFechaModifica(LocalDateTime.now());
                         client.setUsuarioModifica(sysUser.getUsername());
 
                         if(cliDAO.modificar(client)){                           
+
                             this.dispose();
                             formClientes.getClientes();
 

@@ -66,7 +66,7 @@ public class formClienteAdd extends javax.swing.JFrame {
         btnGuardar = new javax.swing.JButton();
         btnGuardar1 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
         setResizable(false);
 
@@ -83,7 +83,7 @@ public class formClienteAdd extends javax.swing.JFrame {
         labRUC.setText("RUC");
         panMain.add(labRUC, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
 
-        txtRUC.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txtRUC.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtRUC.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
         txtRUC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -96,7 +96,7 @@ public class formClienteAdd extends javax.swing.JFrame {
         labRazonSocial.setText("Razón social");
         panMain.add(labRazonSocial, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, -1, -1));
 
-        txtRazonSocial.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txtRazonSocial.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtRazonSocial.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
         txtRazonSocial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -109,7 +109,7 @@ public class formClienteAdd extends javax.swing.JFrame {
         labPrimerNombre.setText("Primer Nombre");
         panMain.add(labPrimerNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, -1, -1));
 
-        txtPrimerNombre.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txtPrimerNombre.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtPrimerNombre.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
         txtPrimerNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -122,7 +122,7 @@ public class formClienteAdd extends javax.swing.JFrame {
         labSegundoNombre.setText("Segundo Nombre");
         panMain.add(labSegundoNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 200, -1, -1));
 
-        txtSegundoNombre.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txtSegundoNombre.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtSegundoNombre.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
         txtSegundoNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -135,7 +135,7 @@ public class formClienteAdd extends javax.swing.JFrame {
         labPrimerApellido.setText("Primer Apellido");
         panMain.add(labPrimerApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, -1, -1));
 
-        txtPrimerApellido.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txtPrimerApellido.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtPrimerApellido.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
         txtPrimerApellido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -148,7 +148,7 @@ public class formClienteAdd extends javax.swing.JFrame {
         labSegundoApellido.setText("Segundo Apellido");
         panMain.add(labSegundoApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 260, -1, -1));
 
-        txtSegundoApellido.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txtSegundoApellido.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtSegundoApellido.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
         txtSegundoApellido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -165,7 +165,7 @@ public class formClienteAdd extends javax.swing.JFrame {
         labTelefono.setText("Telefono");
         panMain.add(labTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, -1, -1));
 
-        txtTelefono.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txtTelefono.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtTelefono.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
         txtTelefono.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -174,7 +174,7 @@ public class formClienteAdd extends javax.swing.JFrame {
         });
         panMain.add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, 200, 30));
 
-        txtCelular.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txtCelular.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtCelular.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
         txtCelular.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -187,7 +187,7 @@ public class formClienteAdd extends javax.swing.JFrame {
         labCorreo.setText("Correo");
         panMain.add(labCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 400, -1, -1));
 
-        txtCorreo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        txtCorreo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtCorreo.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
         txtCorreo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -201,6 +201,7 @@ public class formClienteAdd extends javax.swing.JFrame {
         panMain.add(labDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 460, -1, -1));
 
         txtDireccion.setColumns(20);
+        txtDireccion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtDireccion.setRows(5);
         txtDireccion.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
         jScrollPane1.setViewportView(txtDireccion);
@@ -292,8 +293,6 @@ public class formClienteAdd extends javax.swing.JFrame {
         Cliente client = new Cliente();
         ClienteDAO cliDAO = new ClienteDAO();
         
-        System.out.print(client);
-        
         if(!txtRUC.getText().equals("") && !txtRazonSocial.getText().equals("") && 
                 !txtPrimerNombre.getText().equals("") && !txtSegundoNombre.getText().equals("") &&
                 !txtPrimerApellido.getText().equals("") && !txtSegundoApellido.getText().equals("") &&
@@ -322,8 +321,8 @@ public class formClienteAdd extends javax.swing.JFrame {
                             
                         if(cliDAO.registrar(client)){                           
                             this.dispose();
-                            formClientes cl = new formClientes();
-                            cl.getClientes();
+                            formClientes.getClientes();
+
                         }else{
                             JOptionPane.showMessageDialog(null, "No se guradaron los datos.");
                         }
@@ -342,7 +341,6 @@ public class formClienteAdd extends javax.swing.JFrame {
         }else{
             JOptionPane.showMessageDialog(null, "Por favor, complete todos los campos del formulario.");
         }
-        
         
     }//GEN-LAST:event_btnGuardar1ActionPerformed
 

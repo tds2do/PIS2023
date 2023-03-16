@@ -19,7 +19,7 @@ public class Producto extends RegistroAuditoria{
     private int idCategoria;
     private int idMedida;
     private float precio;
-    private float porcentajeIva;
+    private int porcentajeIva;
     private LocalDate fechaCaducidad;
     
     
@@ -82,11 +82,11 @@ public class Producto extends RegistroAuditoria{
         this.precio = precio;
     }
 
-    public float getPorcentajeIva() {
+    public int getPorcentajeIva() {
         return porcentajeIva;
     }
 
-    public void setPorcentajeIva(float porcentajeIva) {
+    public void setPorcentajeIva(int porcentajeIva) {
         this.porcentajeIva = porcentajeIva;
     }
 
@@ -97,6 +97,7 @@ public class Producto extends RegistroAuditoria{
     public void setFechaCaducidad(LocalDate fechaCaducidad) {
         this.fechaCaducidad = fechaCaducidad;
     }
+
 
     
     

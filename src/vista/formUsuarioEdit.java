@@ -31,7 +31,6 @@ public class formUsuarioEdit extends javax.swing.JFrame {
     public formUsuarioEdit(String id, Usuario user) {
         initComponents();
         this.sysUser = user;
-        this.setLocationRelativeTo(null);
         this.idUsuario = id;
         this.setLocationRelativeTo(null);
         getDatosUsuario();
@@ -353,6 +352,8 @@ public class formUsuarioEdit extends javax.swing.JFrame {
                 !txtPrimerApellido.getText().equals("") && !txtSegundoApellido.getText().equals("") &&
                 !txtFechaNacimiento.getText().equals("") && !txtDepartamento.getText().equals("") &&
                 !txtCargo.getText().equals("") && !txtDireccion.getText().equals("")){
+            
+            client.setIdUsuario(Integer.valueOf(idUsuario));
             
             client.setUsername((String)txtUsername.getText());
             client.setCedula((String)txtCedula.getText());

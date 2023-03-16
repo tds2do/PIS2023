@@ -15,6 +15,16 @@ public class Medida extends RegistroAuditoria{
     private String abreviatura;
 
 
+    public Medida(){
+    
+    }
+    
+    public Medida(int idMedida, String abreviatura){
+        this.idMedida = idMedida;
+        this.abreviatura = abreviatura;
+    
+    }
+    
     public int getIdMedida() {
         return idMedida;
     }
@@ -39,6 +49,9 @@ public class Medida extends RegistroAuditoria{
         this.abreviatura = abreviatura;
     }
 
-    
+    public String toString(){
+        
+        return this.abreviatura; 
+    }
     
 }

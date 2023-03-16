@@ -16,6 +16,16 @@ public class Categoria extends RegistroAuditoria{
     private String abreviatura;
     private String descripcion;
 
+    
+    public Categoria(){
+
+    }
+    
+    public Categoria(int idCategoria, String nombre){
+        this.idCategoria = idCategoria;
+        this.nombre = nombre;
+    }
+    
     public int getIdCategoria() {
         return idCategoria;
     }
@@ -48,6 +58,11 @@ public class Categoria extends RegistroAuditoria{
         this.descripcion = descripcion;
     }
 
+    
+    public String toString(){
+        
+        return this.nombre; 
+    }
     
     
 }

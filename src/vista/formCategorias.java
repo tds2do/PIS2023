@@ -167,7 +167,7 @@ public class formCategorias extends javax.swing.JPanel {
         int fila = tabListaCategorias.getSelectedRow();
         if(fila >= 0){
             String id = (String) tabListaCategorias.getValueAt(fila, 0);
-            formCategoriaEdit2 editClient = new formCategoriaEdit2(id, sysUser);
+            formCategoriaEdit editClient = new formCategoriaEdit(id, sysUser);
             editClient.setVisible(true);
             
         }else{

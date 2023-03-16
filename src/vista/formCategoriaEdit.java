@@ -5,7 +5,9 @@
 package vista;
 
 import DAO.CategoriaDAO;
+import DAO.MedidaDAO;
 import Modelo.Categoria;
+import Modelo.Medida;
 import Modelo.Usuario;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -15,23 +17,37 @@ import javax.swing.JOptionPane;
  *
  * @author Jonathan
  */
-public class formCategoriaEdit2 extends javax.swing.JFrame {
+public class formCategoriaEdit extends javax.swing.JFrame {
 
     Usuario sysUser;
     String idCategoria;
     /**
      * Creates new form formUsuarioAdd
      */
-    public formCategoriaEdit2() {
+    public formCategoriaEdit() {
         initComponents();
         this.setLocationRelativeTo(null);
     }
 
-    public formCategoriaEdit2(String id, Usuario user) {
+    public formCategoriaEdit(String id, Usuario user) {
         initComponents();
         this.sysUser = user;
         this.idCategoria = id;
         this.setLocationRelativeTo(null);
+        getDatosCategoria();
+    }
+    
+    
+    public void getDatosCategoria(){
+        
+        Categoria cate = new Categoria();
+        CategoriaDAO cateDAO = new CategoriaDAO();
+        cate = cateDAO.leer(Integer.valueOf(idCategoria));
+        
+        txtAbreviatura.setText(cate.getAbreviatura());
+        txtNombre.setText(cate.getNombre());
+        txtDescripcion.setText(cate.getDescripcion());
+
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -167,12 +183,12 @@ public class formCategoriaEdit2 extends javax.swing.JFrame {
             cate.setNombre((String)txtNombre.getText());
             cate.setDescripcion((String)txtDescripcion.getText());
             
-
+            cate.setIdCategoria(Integer.valueOf(idCategoria));
                         cate.setEstado(1);
-                        cate.setFechaIngreso(LocalDateTime.now());
-                        cate.setUsuarioIngreso(sysUser.getUsername());
+                        cate.setFechaModifica(LocalDateTime.now());
+                        cate.setUsuarioModifica(sysUser.getUsername());
                             
-                        if(cateDAO.registrar(cate)){                           
+                        if(cateDAO.modificar(cate)){                           
                             this.dispose();
                             formCategorias.getCategorias();
 
@@ -204,14 +220,30 @@ public class formCategoriaEdit2 extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(formCategoriaEdit2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(formCategoriaEdit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(formCategoriaEdit2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(formCategoriaEdit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(formCategoriaEdit2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(formCategoriaEdit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(formCategoriaEdit2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(formCategoriaEdit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -232,7 +264,7 @@ public class formCategoriaEdit2 extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new formCategoriaEdit2().setVisible(true);
+                new formCategoriaEdit().setVisible(true);
             }
         });
     }

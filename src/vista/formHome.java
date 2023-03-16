@@ -419,7 +419,7 @@ public class formHome extends javax.swing.JFrame {
     }//GEN-LAST:event_menuItem4ActionPerformed
 
     private void menuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItem5ActionPerformed
-        formSalidas sld = new formSalidas();
+        formRegistroSalidas sld = new formRegistroSalidas(sysUser);
         sld.setSize(900,700);
         sld.setLocation(0,0);
 

@@ -4,8 +4,8 @@
  */
 package vista;
 
-import DAO.CategoriaDAO;
-import Modelo.Categoria;
+import DAO.RolDAO;
+import Modelo.Rol;
 import Modelo.Usuario;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -15,18 +15,18 @@ import javax.swing.JOptionPane;
  *
  * @author Jonathan
  */
-public class formCategoriaAdd extends javax.swing.JFrame {
+public class formRolAdd extends javax.swing.JFrame {
 
     Usuario sysUser;
     /**
      * Creates new form formUsuarioAdd
      */
-    public formCategoriaAdd() {
+    public formRolAdd() {
         initComponents();
         this.setLocationRelativeTo(null);
     }
 
-    public formCategoriaAdd(Usuario user) {
+    public formRolAdd(Usuario user) {
         initComponents();
         this.sysUser = user;
         this.setLocationRelativeTo(null);
@@ -62,7 +62,7 @@ public class formCategoriaAdd extends javax.swing.JFrame {
 
         labTitle.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         labTitle.setForeground(new java.awt.Color(11, 58, 82));
-        labTitle.setText("Registrar Categoría");
+        labTitle.setText("Registrar Rol");
         panMain.add(labTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
 
         labAbreviatura.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -155,27 +155,27 @@ public class formCategoriaAdd extends javax.swing.JFrame {
 
     private void btnGuardar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardar1ActionPerformed
         
-        Categoria cate = new Categoria();
-        CategoriaDAO cateDAO = new CategoriaDAO();
+        Rol client = new Rol();
+        RolDAO cliDAO = new RolDAO();
         
         if(!txtAbreviatura.getText().equals("") && !txtNombre.getText().equals("") && 
             !txtDescripcion.getText().equals("")){
             
-            cate.setAbreviatura((String)txtAbreviatura.getText());
-            cate.setNombre((String)txtNombre.getText());
-            cate.setDescripcion((String)txtDescripcion.getText());
+            client.setAbreviatura((String)txtAbreviatura.getText());
+            client.setNombre((String)txtNombre.getText());
+            client.setDescripcion((String)txtDescripcion.getText());
             
 
-                        cate.setEstado(1);
-                        cate.setFechaIngreso(LocalDateTime.now());
-                        cate.setUsuarioIngreso(sysUser.getUsername());
+                        client.setEstado(1);
+                        client.setFechaIngreso(LocalDateTime.now());
+                        client.setUsuarioIngreso(sysUser.getUsername());
                             
-                        if(cateDAO.registrar(cate)){                           
+                        if(cliDAO.registrar(client)){                           
                             this.dispose();
-                            formCategorias.getCategorias();
+                            formRoles.getRoles();
 
                         }else{
-                            JOptionPane.showMessageDialog(null, "No se guardaron los datos.");
+                            JOptionPane.showMessageDialog(null, "No se guradaron los datos.");
                         }
                         
             
@@ -202,14 +202,18 @@ public class formCategoriaAdd extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(formCategoriaAdd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(formRolAdd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(formCategoriaAdd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(formRolAdd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(formCategoriaAdd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(formRolAdd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(formCategoriaAdd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(formRolAdd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -218,7 +222,7 @@ public class formCategoriaAdd extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new formCategoriaAdd().setVisible(true);
+                new formRolAdd().setVisible(true);
             }
         });
     }

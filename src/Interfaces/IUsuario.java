@@ -4,17 +4,17 @@
  */
 package Interfaces;
 
-import Modelo.Medida;
+import Modelo.Usuario;
 import java.util.List;
 
 /**
  *
  * @author Jonathan
  */
-public interface IMedida {
-    public Boolean registrar(Medida medida);
-    public Boolean modificar(Medida medida);
-    public Boolean eliminar(Medida medida);
-    public List<Medida> listar();
-    public Medida leer(int idMedida);
+public interface IUsuario {
+    public Boolean registrar(Usuario usuario);
+    public Boolean modificar(Usuario usuario);
+    public Boolean eliminar(Usuario usuario);
+    public List<Usuario> listar();        
+    public Usuario leer(int idUsuario);
 }

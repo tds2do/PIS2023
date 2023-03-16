@@ -4,8 +4,8 @@
  */
 package vista;
 
-import DAO.CategoriaDAO;
-import Modelo.Categoria;
+import DAO.MedidaDAO;
+import Modelo.Medida;
 import Modelo.Usuario;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -15,21 +15,36 @@ import javax.swing.JOptionPane;
  *
  * @author Jonathan
  */
-public class formCategoriaAdd extends javax.swing.JFrame {
+public class formMedidaEdit extends javax.swing.JFrame {
 
     Usuario sysUser;
+    String idMedida;
     /**
      * Creates new form formUsuarioAdd
      */
-    public formCategoriaAdd() {
+    public formMedidaEdit() {
         initComponents();
         this.setLocationRelativeTo(null);
     }
 
-    public formCategoriaAdd(Usuario user) {
+    public formMedidaEdit(String id, Usuario user) {
         initComponents();
         this.sysUser = user;
+        this.idMedida = id;
         this.setLocationRelativeTo(null);
+        getDatosMedida();
+    }
+    
+    
+    public void getDatosMedida(){
+        
+        Medida medi = new Medida();
+        MedidaDAO cliDAO = new MedidaDAO();
+        medi = cliDAO.leer(Integer.valueOf(idMedida));
+        
+        txtAbreviatura.setText(medi.getAbreviatura());
+        txtDescripcion.setText(medi.getDescripcion());
+
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -44,8 +59,6 @@ public class formCategoriaAdd extends javax.swing.JFrame {
         labTitle = new javax.swing.JLabel();
         labAbreviatura = new javax.swing.JLabel();
         txtAbreviatura = new javax.swing.JTextField();
-        labNombre = new javax.swing.JLabel();
-        txtNombre = new javax.swing.JTextField();
         labDescripción = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtDescripcion = new javax.swing.JTextArea();
@@ -62,7 +75,7 @@ public class formCategoriaAdd extends javax.swing.JFrame {
 
         labTitle.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         labTitle.setForeground(new java.awt.Color(11, 58, 82));
-        labTitle.setText("Registrar Categoría");
+        labTitle.setText("Registrar Medida");
         panMain.add(labTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
 
         labAbreviatura.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -78,22 +91,9 @@ public class formCategoriaAdd extends javax.swing.JFrame {
         });
         panMain.add(txtAbreviatura, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 200, 30));
 
-        labNombre.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        labNombre.setText("Nombre");
-        panMain.add(labNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, -1, -1));
-
-        txtNombre.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txtNombre.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
-        txtNombre.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNombreActionPerformed(evt);
-            }
-        });
-        panMain.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 457, 30));
-
         labDescripción.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         labDescripción.setText("Descripción");
-        panMain.add(labDescripción, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, -1, -1));
+        panMain.add(labDescripción, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, -1, -1));
 
         txtDescripcion.setColumns(20);
         txtDescripcion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -101,7 +101,7 @@ public class formCategoriaAdd extends javax.swing.JFrame {
         txtDescripcion.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
         jScrollPane1.setViewportView(txtDescripcion);
 
-        panMain.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 457, -1));
+        panMain.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 457, -1));
 
         btnGuardar.setBackground(new java.awt.Color(204, 204, 204));
         btnGuardar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -140,10 +140,6 @@ public class formCategoriaAdd extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNombreActionPerformed
-
     private void txtAbreviaturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAbreviaturaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtAbreviaturaActionPerformed
@@ -155,24 +151,24 @@ public class formCategoriaAdd extends javax.swing.JFrame {
 
     private void btnGuardar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardar1ActionPerformed
         
-        Categoria cate = new Categoria();
-        CategoriaDAO cateDAO = new CategoriaDAO();
+        Medida medi = new Medida();
+        MedidaDAO cliDAO = new MedidaDAO();
         
-        if(!txtAbreviatura.getText().equals("") && !txtNombre.getText().equals("") && 
+        if(!txtAbreviatura.getText().equals("") && 
             !txtDescripcion.getText().equals("")){
             
-            cate.setAbreviatura((String)txtAbreviatura.getText());
-            cate.setNombre((String)txtNombre.getText());
-            cate.setDescripcion((String)txtDescripcion.getText());
+            medi.setAbreviatura((String)txtAbreviatura.getText());
+            medi.setDescripcion((String)txtDescripcion.getText());
             
+            medi.setIdMedida(Integer.valueOf(idMedida));
 
-                        cate.setEstado(1);
-                        cate.setFechaIngreso(LocalDateTime.now());
-                        cate.setUsuarioIngreso(sysUser.getUsername());
+                        medi.setEstado(1);
+                        medi.setFechaModifica(LocalDateTime.now());
+                        medi.setUsuarioModifica(sysUser.getUsername());
                             
-                        if(cateDAO.registrar(cate)){                           
+                        if(cliDAO.modificar(medi)){                           
                             this.dispose();
-                            formCategorias.getCategorias();
+                            formMedidas.getMedidas();
 
                         }else{
                             JOptionPane.showMessageDialog(null, "No se guardaron los datos.");
@@ -202,14 +198,26 @@ public class formCategoriaAdd extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(formCategoriaAdd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(formMedidaEdit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(formCategoriaAdd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(formMedidaEdit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(formCategoriaAdd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(formMedidaEdit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(formCategoriaAdd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(formMedidaEdit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -218,7 +226,7 @@ public class formCategoriaAdd extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new formCategoriaAdd().setVisible(true);
+                new formMedidaEdit().setVisible(true);
             }
         });
     }
@@ -229,11 +237,9 @@ public class formCategoriaAdd extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel labAbreviatura;
     private javax.swing.JLabel labDescripción;
-    private javax.swing.JLabel labNombre;
     private javax.swing.JLabel labTitle;
     private javax.swing.JPanel panMain;
     private javax.swing.JTextField txtAbreviatura;
     private javax.swing.JTextArea txtDescripcion;
-    private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 }

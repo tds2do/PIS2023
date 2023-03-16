@@ -9,19 +9,19 @@ package Modelo;
  *
  * @author Jonathan
  */
-public class Categoria extends RegistroAuditoria{
+public class Rol extends RegistroAuditoria{
     
-    private int idCategoria;
+    private int idRol;
     private String nombre;
     private String abreviatura;
     private String descripcion;
 
-    public int getIdCategoria() {
-        return idCategoria;
+    public int getIdRol() {
+        return idRol;
     }
 
-    public void setIdCategoria(int idCategoria) {
-        this.idCategoria = idCategoria;
+    public void setIdRol(int idRol) {
+        this.idRol = idRol;
     }
 
     public String getNombre() {
@@ -48,6 +48,8 @@ public class Categoria extends RegistroAuditoria{
         this.descripcion = descripcion;
     }
 
+    
+    
     
     
 }

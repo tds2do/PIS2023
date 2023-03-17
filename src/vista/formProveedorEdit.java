@@ -102,7 +102,7 @@ public class formProveedorEdit extends javax.swing.JFrame {
 
         labTitle.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         labTitle.setForeground(new java.awt.Color(11, 58, 82));
-        labTitle.setText("Modificar Cliente");
+        labTitle.setText("Modificar Proveedor");
         panMain.add(labTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
 
         labRUC.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N

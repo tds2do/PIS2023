@@ -80,7 +80,7 @@ public class formCategoriaEdit extends javax.swing.JFrame {
 
         labTitle.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         labTitle.setForeground(new java.awt.Color(11, 58, 82));
-        labTitle.setText("Registrar Categoría");
+        labTitle.setText("Modificar Categoría");
         panMain.add(labTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
 
         labAbreviatura.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N

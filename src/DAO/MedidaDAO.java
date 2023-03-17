@@ -5,10 +5,13 @@
 package DAO;
 
 import Interfaces.IMedida;
+import Modelo.Categoria;
 import Modelo.DataBase;
 import Modelo.Medida;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -19,12 +22,12 @@ public class MedidaDAO implements IMedida{
     DataBase bd = new DataBase();
     @Override
     public Boolean registrar(Medida medida) {
-        String sql = "INSERT INTO Categoria(`descripcion`, `abreviatura`, `estado`, `fechaIngreso`, `usuarioIngreso`, `fechaModifica`, `usuarioModifica`, `fechaElimina`, `usuarioElimina`)"
+        String sql = "INSERT INTO Medida(`descripcion`, `abreviatura`, `estado`, `fechaIngreso`, `usuarioIngreso`, `fechaModifica`, `usuarioModifica`, `fechaElimina`, `usuarioElimina`)"
                 + " VALUES('"
                 + medida.getDescripcion()+"','"
                 + medida.getAbreviatura()+"','"
                 + medida.getEstado()+"','"
-                + medida.getFechaIngreso()+"','"
+                + medida.getFechaIngreso().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")) +"','"
                 + medida.getUsuarioIngreso()+"', "
                 + null+", "
                 + null+", "
@@ -38,7 +41,7 @@ public class MedidaDAO implements IMedida{
 
     @Override
     public Boolean modificar(Medida medida) {
-        String sql = "UPDATE Producto SET descripcion='"
+        String sql = "UPDATE Medida SET descripcion='"
                 + medida.getDescripcion()+"',abreviatura='"
                 + medida.getAbreviatura()+"',fechaModifica='"
                 + medida.getFechaModifica().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))+"',usuarioModifica='"
@@ -65,11 +68,33 @@ public class MedidaDAO implements IMedida{
         return false;
     }
 
+
     @Override
-    public List<Medida> consultar() {
-        String sql = "SELECT * FROM Categoria WHERE estado = 1";
-        List rows = bd.execute(sql);
-        return rows;
+    public List<Medida> listar() {
+        String sql = "SELECT * FROM Medida WHERE estado = 1";
+        List<Map> rows = bd.execute(sql);
+        List<Medida> medidas = new ArrayList();
+        for(Map row : rows){
+            Medida med = new Medida();
+            med.setIdMedida((int) row.get("idMedida"));
+            med.setAbreviatura((String) row.get("abreviatura"));
+            med.setDescripcion((String) row.get("descripcion"));
+            medidas.add(med);
+        }
+        return medidas;
+    }
+
+    @Override
+    public Medida leer(int idMedida) {
+        String sql = "SELECT * FROM Medida WHERE idMedida="+idMedida;
+        List<Map> data = bd.execute(sql);
+        Medida med = new Medida();
+        for(Map da : data){
+            med.setIdMedida((int) da.get("idMedida"));
+            med.setAbreviatura((String) da.get("abreviatura"));
+            med.setDescripcion((String) da.get("descripcion"));
+        }
+        return med;
     }
     
 }

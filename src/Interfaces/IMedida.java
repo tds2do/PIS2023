@@ -15,5 +15,6 @@ public interface IMedida {
     public Boolean registrar(Medida medida);
     public Boolean modificar(Medida medida);
     public Boolean eliminar(Medida medida);
-    public List<Medida> consultar();
+    public List<Medida> listar();
+    public Medida leer(int idMedida);
 }

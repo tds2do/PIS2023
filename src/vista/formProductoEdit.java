@@ -4,15 +4,21 @@
  */
 package vista;
 
+import DAO.CategoriaDAO;
 import DAO.ClienteDAO;
+import DAO.MedidaDAO;
 import DAO.ProductoDAO;
+import Modelo.Categoria;
 import Modelo.Cliente;
+import Modelo.Iva;
+import Modelo.Medida;
 import Modelo.Producto;
 import Modelo.Usuario;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 /**
@@ -22,6 +28,7 @@ import javax.swing.JOptionPane;
 public class formProductoEdit extends javax.swing.JFrame {
 
     Usuario sysUser;
+    String idProducto;
     /**
      * Creates new form formUsuarioAdd
      */
@@ -33,7 +40,61 @@ public class formProductoEdit extends javax.swing.JFrame {
     public formProductoEdit(String id, Usuario user) {
         initComponents();
         this.sysUser = user;
+        this.idProducto = id;
         this.setLocationRelativeTo(null);
+        this.getCategorias();
+        this.getMedidas();
+        this.getPorcentaje();
+        this.getDatosProducto();
+    }
+    
+    
+    public void getDatosProducto(){
+        
+        Producto pro = new Producto();
+        ProductoDAO proDAO = new ProductoDAO();
+        
+        System.out.println(idProducto);
+        pro = proDAO.leer(Integer.parseInt(idProducto));
+        
+        txtCodigo.setText(pro.getCodigo());
+        txtNombre.setText(pro.getNombre());
+        txtDescripcion.setText(pro.getDescripcion());
+        txtPrecio.setText(String.valueOf(pro.getPrecio()));
+
+    }
+    
+    
+    public void getCategorias(){
+        CategoriaDAO cateDAO = new CategoriaDAO();
+        List<Categoria> categorias = cateDAO.listar();
+
+        listCategoria.removeAllItems();
+        for(Categoria cat:categorias){
+            listCategoria.addItem(new Categoria(cat.getIdCategoria(),cat.getNombre()));
+        }
+        
+    }
+    
+    
+    public void getMedidas(){
+        MedidaDAO mediDAO = new MedidaDAO();
+        List<Medida> medidas = mediDAO.listar();
+
+        listMedida.removeAllItems();
+        for(Medida med:medidas){
+            listMedida.addItem(new Medida(med.getIdMedida(), med.getAbreviatura()));
+        }
+        
+    }
+    
+    
+    public void getPorcentaje(){
+        
+        listPorcentajeIva.removeAllItems();
+        listPorcentajeIva.addItem(new Iva("0%",1));
+        listPorcentajeIva.addItem(new Iva("12%",2));
+        
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -58,13 +119,13 @@ public class formProductoEdit extends javax.swing.JFrame {
         labPrecio = new javax.swing.JLabel();
         txtPrecio = new javax.swing.JTextField();
         labPorcentajeIva = new javax.swing.JLabel();
-        calFechaCaducidad = new com.toedter.calendar.JDateChooser();
         labCodigo = new javax.swing.JLabel();
         listPorcentajeIva = new javax.swing.JComboBox<>();
         listCategoria = new javax.swing.JComboBox<>();
         labDescripcion = new javax.swing.JLabel();
         labCategoria = new javax.swing.JLabel();
         listMedida = new javax.swing.JComboBox<>();
+        txtFechaCaducidad = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -76,12 +137,12 @@ public class formProductoEdit extends javax.swing.JFrame {
 
         labTitle.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         labTitle.setForeground(new java.awt.Color(11, 58, 82));
-        labTitle.setText("Registrar Producto");
+        labTitle.setText("Modificar Producto");
         panMain.add(labTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
 
         labRUC.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         labRUC.setText("Fecha de caducidad");
-        panMain.add(labRUC, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 60, -1, -1));
+        panMain.add(labRUC, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 60, -1, -1));
 
         txtCodigo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtCodigo.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
@@ -156,16 +217,11 @@ public class formProductoEdit extends javax.swing.JFrame {
         labPorcentajeIva.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         labPorcentajeIva.setText("Porcentaje IVA");
         panMain.add(labPorcentajeIva, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 400, -1, -1));
-        panMain.add(calFechaCaducidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 80, 200, 30));
 
         labCodigo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         labCodigo.setText("Código");
         panMain.add(labCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
-
-        listPorcentajeIva.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         panMain.add(listPorcentajeIva, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 430, 200, 30));
-
-        listCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         panMain.add(listCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, 200, 30));
 
         labDescripcion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -175,9 +231,11 @@ public class formProductoEdit extends javax.swing.JFrame {
         labCategoria.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         labCategoria.setText("Categoría");
         panMain.add(labCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, -1, -1));
-
-        listMedida.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         panMain.add(listMedida, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 350, 200, 30));
+
+        txtFechaCaducidad.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd/MM/yyyy"))));
+        txtFechaCaducidad.setText("dd/MM/yyyy");
+        panMain.add(txtFechaCaducidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 80, 170, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -214,29 +272,41 @@ public class formProductoEdit extends javax.swing.JFrame {
         ProductoDAO produDAO = new ProductoDAO();
         
         if(!txtCodigo.getText().equals("") && !txtNombre.getText().equals("") && 
-                !txtDescripcion.getText().equals("")){
+                !txtDescripcion.getText().equals("") && !txtPrecio.getText().equals("") && 
+                !txtFechaCaducidad.getText().equals("")&& 
+                !txtFechaCaducidad.getText().equals("dd/MM/yyyy")){
             
             produ.setCodigo((String)txtCodigo.getText());
             produ.setNombre((String)txtNombre.getText());
             produ.setDescripcion((String)txtDescripcion.getText());
             produ.setPrecio(Float.parseFloat(txtPrecio.getText()));
-            produ.setPorcentajeIva(listPorcentajeIva.getSelectedIndex());
-            String fechaLocal= calFechaCaducidad.getDateFormatString();
-            produ.setFechaCaducidad(LocalDate.parse(fechaLocal));
-            produ.setIdCategoria(listPorcentajeIva.getSelectedIndex());
-            produ.setIdMedida(listPorcentajeIva.getSelectedIndex());
+            produ.setPorcentajeIva((int) listPorcentajeIva.getItemAt(listPorcentajeIva.getSelectedIndex()).getValor());
+                       
+            LocalDate fechaCaducidad = LocalDate.parse(txtFechaCaducidad.getText(),DateTimeFormatter.ofPattern("dd/MM/yyyy")); 
+            produ.setFechaCaducidad(fechaCaducidad);
+            System.out.println(fechaCaducidad);
+            
+            produ.setIdCategoria(listCategoria.getItemAt(listCategoria.getSelectedIndex()).getIdCategoria());
+            produ.setIdMedida(listMedida.getItemAt(listMedida.getSelectedIndex()).getIdMedida());
+            
+            produ.setIdProducto(Integer.valueOf(idProducto));
             
                 produ.setEstado(1);
-                produ.setFechaIngreso(LocalDateTime.now());
-                produ.setUsuarioIngreso(sysUser.getUsername());
+                produ.setFechaModifica(LocalDateTime.now());
+                produ.setUsuarioModifica(sysUser.getUsername());
                             
-                if(produDAO.registrar(produ)){                           
-                    this.dispose();
-                    formClientes.getClientes();
+                if(txtCodigo.getText().length() == 5){
+                    if(produDAO.modificar(produ)){                           
+                        this.dispose();
+                        formProductos.getProductos();
 
+                    }else{
+                        JOptionPane.showMessageDialog(null, "No se guardaron los datos.");
+                    }
                 }else{
-                    JOptionPane.showMessageDialog(null, "No se guradaron los datos.");
-                }
+                
+                    JOptionPane.showMessageDialog(null, "El código no puede superar los 5 dígitos.");
+                } 
                         
             
         }else{
@@ -294,7 +364,6 @@ public class formProductoEdit extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnGuardar1;
-    private com.toedter.calendar.JDateChooser calFechaCaducidad;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel labCategoria;
     private javax.swing.JLabel labCodigo;
@@ -305,12 +374,13 @@ public class formProductoEdit extends javax.swing.JFrame {
     private javax.swing.JLabel labRUC;
     private javax.swing.JLabel labRazonSocial;
     private javax.swing.JLabel labTitle;
-    private javax.swing.JComboBox<String> listCategoria;
-    private javax.swing.JComboBox<String> listMedida;
-    private javax.swing.JComboBox<String> listPorcentajeIva;
+    private javax.swing.JComboBox<Categoria> listCategoria;
+    private javax.swing.JComboBox<Medida> listMedida;
+    private javax.swing.JComboBox<Iva> listPorcentajeIva;
     private javax.swing.JPanel panMain;
     private javax.swing.JTextField txtCodigo;
     private javax.swing.JTextArea txtDescripcion;
+    private javax.swing.JFormattedTextField txtFechaCaducidad;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtPrecio;
     // End of variables declaration//GEN-END:variables

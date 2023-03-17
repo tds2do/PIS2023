@@ -48,7 +48,7 @@ public class formProductos extends javax.swing.JPanel {
         
         for(Producto produ :productos){
             
-            model.addRow(new String[]{String.valueOf(produ.getIdProducto()), String.valueOf(produ.getCodigo()), produ.getNombre(), String.valueOf(produ.getIdCategoria()), String.valueOf(produ.getIdMedida()), 
+            model.addRow(new String[]{String.valueOf(produ.getIdProducto()), produ.getCodigo(), produ.getNombre(), String.valueOf(produ.getIdCategoria()), String.valueOf(produ.getIdMedida()), 
                 String.valueOf(produ.getPrecio()), String.valueOf(produ.getPorcentajeIva()), String.valueOf(produ.getFechaCaducidad())
             });
             

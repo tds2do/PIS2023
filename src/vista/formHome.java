@@ -387,7 +387,7 @@ public class formHome extends javax.swing.JFrame {
 
     private void menuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItem2ActionPerformed
        formProveedores prv = new formProveedores(sysUser);
-        prv.setSize(709, 700);
+        prv.setSize(900, 700);
         prv.setLocation(0,0);
 
         panContent.removeAll();
@@ -397,8 +397,8 @@ public class formHome extends javax.swing.JFrame {
     }//GEN-LAST:event_menuItem2ActionPerformed
 
     private void menuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItem3ActionPerformed
-        formProductos prd = new formProductos();
-        prd.setSize(709,700);
+        formProductos prd = new formProductos(sysUser);
+        prd.setSize(900,700);
         prd.setLocation(0,0);
 
         panContent.removeAll();
@@ -408,8 +408,8 @@ public class formHome extends javax.swing.JFrame {
     }//GEN-LAST:event_menuItem3ActionPerformed
 
     private void menuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItem4ActionPerformed
-        formEntradas entr = new formEntradas();
-        entr.setSize(709,700);
+        formRegistroEntradas entr = new formRegistroEntradas(sysUser);
+        entr.setSize(900,700);
         entr.setLocation(0,0);
 
         panContent.removeAll();
@@ -419,8 +419,8 @@ public class formHome extends javax.swing.JFrame {
     }//GEN-LAST:event_menuItem4ActionPerformed
 
     private void menuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItem5ActionPerformed
-        formSalidas sld = new formSalidas();
-        sld.setSize(709,700);
+        formRegistroSalidas sld = new formRegistroSalidas(sysUser);
+        sld.setSize(900,700);
         sld.setLocation(0,0);
 
         panContent.removeAll();
@@ -431,7 +431,7 @@ public class formHome extends javax.swing.JFrame {
 
     private void menuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItem6ActionPerformed
         formInventario inv = new formInventario();
-        inv.setSize(709,700);
+        inv.setSize(900,700);
         inv.setLocation(0,0);
 
         panContent.removeAll();
@@ -441,8 +441,8 @@ public class formHome extends javax.swing.JFrame {
     }//GEN-LAST:event_menuItem6ActionPerformed
 
     private void menuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItem7ActionPerformed
-        formCategorias ctg = new formCategorias();
-        ctg.setSize(709,700);
+        formCategorias ctg = new formCategorias(sysUser);
+        ctg.setSize(900,700);
         ctg.setLocation(0,0);
 
         panContent.removeAll();
@@ -452,8 +452,8 @@ public class formHome extends javax.swing.JFrame {
     }//GEN-LAST:event_menuItem7ActionPerformed
 
     private void menuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItem8ActionPerformed
-        formMedidas mdd = new formMedidas();
-        mdd.setSize(709,700);
+        formMedidas mdd = new formMedidas(sysUser);
+        mdd.setSize(900,700);
         mdd.setLocation(0,0);
 
         panContent.removeAll();
@@ -463,8 +463,8 @@ public class formHome extends javax.swing.JFrame {
     }//GEN-LAST:event_menuItem8ActionPerformed
 
     private void menuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItem9ActionPerformed
-        formUsuarios usu = new formUsuarios();
-        usu.setSize(709,700);
+        formUsuarios usu = new formUsuarios(sysUser);
+        usu.setSize(900,700);
         usu.setLocation(0,0);
 
         panContent.removeAll();
@@ -474,8 +474,8 @@ public class formHome extends javax.swing.JFrame {
     }//GEN-LAST:event_menuItem9ActionPerformed
 
     private void menuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItem10ActionPerformed
-        formRoles rl = new formRoles();
-        rl .setSize(709,700);
+        formRoles rl = new formRoles(sysUser);
+        rl .setSize(900,700);
         rl .setLocation(0,0);
 
         panContent.removeAll();

@@ -137,10 +137,6 @@ public class formClientes extends javax.swing.JPanel {
         if(fila >= 0){
             
             String id = (String) tabListaClientes.getValueAt(fila, 0);
-            
-
-        }else{
-            JOptionPane.showMessageDialog(null, "Por favor, debe seleccionar un registro.");
             int res = JOptionPane.showConfirmDialog(null, "¿Desea eliminar el registro?");
             
             if(res == 0){
@@ -150,8 +146,10 @@ public class formClientes extends javax.swing.JPanel {
                 client.setUsuarioElimina(sysUser.getUsername());
                 cliDAO.eliminar(client);
                 getClientes();
-            }
-            //System.out.println(res);
+            }            
+
+        }else{
+            JOptionPane.showMessageDialog(null, "Por favor, debe seleccionar un registro.");
             
         }
         

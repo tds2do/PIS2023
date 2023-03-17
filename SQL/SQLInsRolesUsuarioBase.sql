@@ -138,11 +138,13 @@ VALUES (1,6,1, NOW(),'SERVER',null,null,null,null);
 INSERT INTO `usuario`(`userName`, `password`, `codigoEmpleado`, `cedula`, `primerNombre`, `segundoNombre`, `primerApellido`, `segundoApellido`, `Cargo`, `Departamento`, `idRol`, `fechaNacimiento`, `direccion`, `estado`, `fechaIngreso`, `usuarioIngreso`, `fechaModifica`, `usuarioModifica`, `fechaElimina`, `usuarioElimina`) 
 VALUES ('0200338877','628612b803c647a7de70f0306c6bbc489d8b75e6ffef150b70a1553a5a7abbeb',
 '28','0200338877','Jonathan','Ulises','Cevallos','Guambuguete','Bodeguero','Administracion',2,'1994-02-24','Daule',1,NOW(),'SERVER',null,null,null,null);
+--jonathan
 
 INSERT INTO `usuario`(`userName`, `password`, `codigoEmpleado`, `cedula`, `primerNombre`, `segundoNombre`, `primerApellido`, `segundoApellido`, `Cargo`, `Departamento`, `idRol`, `fechaNacimiento`, `direccion`, `estado`, `fechaIngreso`, `usuarioIngreso`, `fechaModifica`, `usuarioModifica`, `fechaElimina`, `usuarioElimina`) 
 VALUES ('admin','41E5653FC7AEB894026D6BB7B2DB7F65902B454945FA8FD65A6327047B5277FB',
 '28','0200338877','Jonathan','Ulises','Cevallos','Guambuguete','Bodeguero','Administracion',1,'1994-02-24','Daule',1,NOW(),'SERVER',null,null,null,null);
 
+--admin12345
 
 -- Parametro general
 

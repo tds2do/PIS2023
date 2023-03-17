@@ -1,5 +1,9 @@
-
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
+ */
 package vista;
+
 import DAO.CategoriaDAO;
 import Modelo.Categoria;
 import Modelo.Usuario;
@@ -9,34 +13,47 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-
+/**
+ *
+ * @author Kevin Barzola
+ */
 public class formCategorias extends javax.swing.JPanel {
     
-Usuario sysUser;
-
+    Usuario sysUser;
+    
+    /**
+     * Creates new form Categorias
+     */
     public formCategorias() {
         initComponents();
+        
     }
     
     public formCategorias(Usuario user) {
         initComponents();
         this.sysUser = user;
+        getCategorias();
         
-    } 
+    }
     
-    public static void getCategoria() {
-        CategoriaDAO categoDAO = new CategoriaDAO();
-        
-        List<Categoria> categorias = categoDAO.listar();
-        DefaultTableModel model = (DefaultTableModel) tblcategoria.getModel();
-        tblcategoria.removeAll();
+    public static void getCategorias(){
+        CategoriaDAO cateDAO = new CategoriaDAO();
+        List<Categoria> categorias = cateDAO.listar();
+
+        DefaultTableModel model = (DefaultTableModel) tabListaCategorias.getModel();
+        tabListaCategorias.removeAll();
         model.setRowCount(0);
         
-        for(Categoria cat: categorias){
-            model.addRow(new String [] {String.valueOf(cat.getIdCategoria()),cat.getNombre(),cat.getAbreviatura(),cat.getDescripcion()});
+        for(Categoria cat :categorias){
+            
+            model.addRow(new String[]{String.valueOf(cat.getIdCategoria()), cat.getNombre(), 
+                cat.getDescripcion(), cat.getAbreviatura()
+            });
+            
         }
+        
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -46,142 +63,127 @@ Usuario sysUser;
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel2 = new javax.swing.JLabel();
+        labTitle = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tabListaCategorias = new javax.swing.JTable();
         btnEliminar = new javax.swing.JButton();
-        btnmodificar = new javax.swing.JButton();
-        btnnuevo = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        tblcategoria = new javax.swing.JTable();
+        btnNuevo = new javax.swing.JButton();
+        btnModificar = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(224, 224, 224));
+        setPreferredSize(new java.awt.Dimension(900, 500));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(11, 58, 82));
-        jLabel2.setText("CATEGORIA");
+        labTitle.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        labTitle.setForeground(new java.awt.Color(11, 58, 82));
+        labTitle.setText("CATEGORIAS");
+        add(labTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+
+        tabListaCategorias.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Id", "Nombre", "Descripción", "Abreviatura"
+            }
+        ));
+        tabListaCategorias.setMinimumSize(new java.awt.Dimension(0, 0));
+        tabListaCategorias.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(tabListaCategorias);
+
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 860, 280));
 
         btnEliminar.setBackground(new java.awt.Color(255, 102, 102));
-        btnEliminar.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
+        btnEliminar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnEliminar.setForeground(new java.awt.Color(255, 255, 255));
-        btnEliminar.setText("ELIMINAR");
+        btnEliminar.setText("Eliminar");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminarActionPerformed(evt);
             }
         });
+        add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 70, 100, 30));
 
-        btnmodificar.setBackground(new java.awt.Color(255, 153, 51));
-        btnmodificar.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
-        btnmodificar.setForeground(new java.awt.Color(255, 255, 255));
-        btnmodificar.setText("MODIFICAR");
-        btnmodificar.addActionListener(new java.awt.event.ActionListener() {
+        btnNuevo.setBackground(new java.awt.Color(30, 150, 210));
+        btnNuevo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnNuevo.setForeground(new java.awt.Color(255, 255, 255));
+        btnNuevo.setText("Nuevo");
+        btnNuevo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnmodificarActionPerformed(evt);
+                btnNuevoActionPerformed(evt);
             }
         });
+        add(btnNuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 100, 30));
 
-        btnnuevo.setBackground(new java.awt.Color(30, 150, 210));
-        btnnuevo.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
-        btnnuevo.setForeground(new java.awt.Color(255, 255, 255));
-        btnnuevo.setText("NUEVO");
-        btnnuevo.addActionListener(new java.awt.event.ActionListener() {
+        btnModificar.setBackground(new java.awt.Color(255, 153, 51));
+        btnModificar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnModificar.setForeground(new java.awt.Color(255, 255, 255));
+        btnModificar.setText("Modificar");
+        btnModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnnuevoActionPerformed(evt);
+                btnModificarActionPerformed(evt);
             }
         });
-
-        tblcategoria.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "idCategoria", "Nombre", "Abreviatura", "Descripcion"
-            }
-        ));
-        jScrollPane2.setViewportView(tblcategoria);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 612, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnnuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(32, 32, 32)
-                                .addComponent(btnmodificar, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(32, 32, 32)
-                                .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel2))
-                        .addGap(149, 370, Short.MAX_VALUE))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(jLabel2)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnnuevo)
-                    .addComponent(btnmodificar)
-                    .addComponent(btnEliminar))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(152, Short.MAX_VALUE))
-        );
+        add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, 100, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        int fila = tblcategoria.getSelectedRow();
-        Categoria catego = new Categoria();
-        CategoriaDAO cateDAO = new CategoriaDAO();
+        
+        int fila = tabListaCategorias.getSelectedRow();
+        Categoria cate = new Categoria();
+        CategoriaDAO cliDAO = new CategoriaDAO();
+
         if(fila >= 0){
-            String id =(String)tblcategoria.getValueAt(fila, 0);
-            int res = JOptionPane.showConfirmDialog(null, "¿Desea eliminar este registro?") ;
-          if(res == 0){
-              catego.setIdCategoria(Integer.valueOf(id));
-              catego.setEstado(0);
-              catego.setFechaElimina(LocalDateTime.now());
-              catego.setUsuarioElimina(sysUser.getUsername());
-              cateDAO.eliminar(catego);
-              getCategoria();
-              
-          }else{
-              JOptionPane.showMessageDialog(null, "Por favor debe seleccionar un registro");
-          }
-          
+            
+            String id = (String) tabListaCategorias.getValueAt(fila, 0);
+            int res = JOptionPane.showConfirmDialog(null, "¿Desea eliminar el registro?");
+            
+            if(res == 0){
+                cate.setIdCategoria(Integer.valueOf(id));
+                cate.setEstado(0);
+                cate.setFechaElimina(LocalDateTime.now());
+                cate.setUsuarioElimina(sysUser.getUsername());
+                cliDAO.eliminar(cate);
+                getCategorias();
+            }            
+
+        }else{
+            JOptionPane.showMessageDialog(null, "Por favor, debe seleccionar un registro.");
+            
         }
+        
     }//GEN-LAST:event_btnEliminarActionPerformed
 
-    private void btnmodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmodificarActionPerformed
-        int fila = tblcategoria.getSelectedRow();
-        if (fila >= 0){
-            String id = (String)tblcategoria.getValueAt(fila, 0);
-            formcategoriaEdit editcat = new formcategoriaEdit(id);
-            editcat.setVisible(true);
-        }
-    }//GEN-LAST:event_btnmodificarActionPerformed
+    private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
+        
+        formCategoriaAdd regCate = new formCategoriaAdd(sysUser);
+        regCate.setVisible(true);
+        
+        
+    }//GEN-LAST:event_btnNuevoActionPerformed
 
-    private void btnnuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnuevoActionPerformed
-        formCategoriaAdd categoriaAdd = new formCategoriaAdd();
-        categoriaAdd.setVisible(true);
-    }//GEN-LAST:event_btnnuevoActionPerformed
+    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
+        
+        int fila = tabListaCategorias.getSelectedRow();
+        if(fila >= 0){
+            String id = (String) tabListaCategorias.getValueAt(fila, 0);
+            formCategoriaEdit editClient = new formCategoriaEdit(id, sysUser);
+            editClient.setVisible(true);
+            
+        }else{
+
+            JOptionPane.showMessageDialog(null, "Por favor, debe seleccionar un registro.");
+        }
+        
+    }//GEN-LAST:event_btnModificarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEliminar;
-    private javax.swing.JButton btnmodificar;
-    private javax.swing.JButton btnnuevo;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JScrollPane jScrollPane2;
-    public static javax.swing.JTable tblcategoria;
+    private javax.swing.JButton btnModificar;
+    private javax.swing.JButton btnNuevo;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel labTitle;
+    public static javax.swing.JTable tabListaCategorias;
     // End of variables declaration//GEN-END:variables
 }

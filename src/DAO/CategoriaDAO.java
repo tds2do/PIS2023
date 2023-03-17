@@ -41,7 +41,7 @@ public class CategoriaDAO implements ICategoria{
 
     @Override
     public Boolean modificar(Categoria categoria) {
-        String sql = "UPDATE Producto SET nombre='"
+        String sql = "UPDATE Categoria SET nombre='"
                 + categoria.getNombre()+"',abreviatura='"
                 + categoria.getAbreviatura()+"',descripcion='"
                 + categoria.getDescripcion()+"',fechaModifica='"
@@ -76,7 +76,7 @@ public class CategoriaDAO implements ICategoria{
         List<Categoria> Categorias = new ArrayList();
         for(Map row : rows){
             Categoria cat = new Categoria();
-            cat.setIdCategoria((int) row.get("id"));
+            cat.setIdCategoria((int) row.get("idCategoria"));
             cat.setNombre((String) row.get("nombre"));
             cat.setAbreviatura((String) row.get("abreviatura"));
             cat.setDescripcion((String) row.get("descripcion"));

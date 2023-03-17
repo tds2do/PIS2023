@@ -1,25 +1,36 @@
-
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ */
 package vista;
+
 import DAO.CategoriaDAO;
 import Modelo.Categoria;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter; 
-import javax.swing.JOptionPane;
 import Modelo.Usuario;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import javax.swing.JOptionPane;
 
+/**
+ *
+ * @author Jonathan
+ */
 public class formCategoriaAdd extends javax.swing.JFrame {
-   Usuario sysUser;
-    
+
+    Usuario sysUser;
+    /**
+     * Creates new form formUsuarioAdd
+     */
     public formCategoriaAdd() {
         initComponents();
         this.setLocationRelativeTo(null);
     }
-    public formCategoriaAdd(Usuario user){
+
+    public formCategoriaAdd(Usuario user) {
         initComponents();
-        
+        this.sysUser = user;
         this.setLocationRelativeTo(null);
     }
-   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -29,196 +40,150 @@ public class formCategoriaAdd extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        btnCancelarc = new javax.swing.JButton();
-        txtnombre = new javax.swing.JTextField();
-        txtabreviatura = new javax.swing.JTextField();
+        panMain = new javax.swing.JPanel();
+        labTitle = new javax.swing.JLabel();
+        labAbreviatura = new javax.swing.JLabel();
+        txtAbreviatura = new javax.swing.JTextField();
+        labNombre = new javax.swing.JLabel();
+        txtNombre = new javax.swing.JTextField();
+        labDescripción = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        txtdescripcion = new javax.swing.JTextArea();
-        jLabel2 = new javax.swing.JLabel();
-        labRUC = new javax.swing.JLabel();
-        labRUC1 = new javax.swing.JLabel();
-        labRUC2 = new javax.swing.JLabel();
-        btnGuardarc = new javax.swing.JButton();
+        txtDescripcion = new javax.swing.JTextArea();
+        btnGuardar = new javax.swing.JButton();
+        btnGuardar1 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
+        setResizable(false);
 
-        jPanel1.setBackground(new java.awt.Color(224, 224, 224));
+        panMain.setBackground(new java.awt.Color(255, 255, 255));
+        panMain.setForeground(new java.awt.Color(255, 255, 255));
+        panMain.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnCancelarc.setBackground(new java.awt.Color(204, 204, 204));
-        btnCancelarc.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnCancelarc.setForeground(new java.awt.Color(255, 255, 255));
-        btnCancelarc.setText("Cancelar");
-        btnCancelarc.addActionListener(new java.awt.event.ActionListener() {
+        labTitle.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        labTitle.setForeground(new java.awt.Color(11, 58, 82));
+        labTitle.setText("Registrar Categoría");
+        panMain.add(labTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
+
+        labAbreviatura.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        labAbreviatura.setText("Abreviatura");
+        panMain.add(labAbreviatura, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
+
+        txtAbreviatura.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtAbreviatura.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        txtAbreviatura.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCancelarcActionPerformed(evt);
+                txtAbreviaturaActionPerformed(evt);
             }
         });
+        panMain.add(txtAbreviatura, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 200, 30));
 
-        txtnombre.setBackground(new java.awt.Color(224, 224, 224));
-        txtnombre.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        txtnombre.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
-        txtnombre.addActionListener(new java.awt.event.ActionListener() {
+        labNombre.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        labNombre.setText("Nombre");
+        panMain.add(labNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, -1, -1));
+
+        txtNombre.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtNombre.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        txtNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtnombreActionPerformed(evt);
+                txtNombreActionPerformed(evt);
             }
         });
+        panMain.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 457, 30));
 
-        txtabreviatura.setBackground(new java.awt.Color(224, 224, 224));
-        txtabreviatura.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        txtabreviatura.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
-        txtabreviatura.addActionListener(new java.awt.event.ActionListener() {
+        labDescripción.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        labDescripción.setText("Descripción");
+        panMain.add(labDescripción, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, -1, -1));
+
+        txtDescripcion.setColumns(20);
+        txtDescripcion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtDescripcion.setRows(5);
+        txtDescripcion.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(0, 0, 0)));
+        jScrollPane1.setViewportView(txtDescripcion);
+
+        panMain.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 457, -1));
+
+        btnGuardar.setBackground(new java.awt.Color(204, 204, 204));
+        btnGuardar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnGuardar.setText("Cancelar");
+        btnGuardar.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtabreviaturaActionPerformed(evt);
+                btnGuardarActionPerformed(evt);
             }
         });
+        panMain.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 360, 90, 30));
 
-        txtdescripcion.setColumns(20);
-        txtdescripcion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txtdescripcion.setForeground(new java.awt.Color(51, 51, 51));
-        txtdescripcion.setRows(5);
-        jScrollPane1.setViewportView(txtdescripcion);
-
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(11, 58, 82));
-        jLabel2.setText("CATEGORIA");
-
-        labRUC.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        labRUC.setForeground(new java.awt.Color(0, 0, 0));
-        labRUC.setText("Nombre");
-
-        labRUC1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        labRUC1.setForeground(new java.awt.Color(0, 0, 0));
-        labRUC1.setText("Abreviatura");
-
-        labRUC2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        labRUC2.setForeground(new java.awt.Color(0, 0, 0));
-        labRUC2.setText("Descripcion");
-
-        btnGuardarc.setBackground(new java.awt.Color(11, 58, 82));
-        btnGuardarc.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnGuardarc.setForeground(new java.awt.Color(255, 255, 255));
-        btnGuardarc.setText("Guardar");
-        btnGuardarc.addActionListener(new java.awt.event.ActionListener() {
+        btnGuardar1.setBackground(new java.awt.Color(11, 58, 82));
+        btnGuardar1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnGuardar1.setForeground(new java.awt.Color(255, 255, 255));
+        btnGuardar1.setText("Guardar");
+        btnGuardar1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        btnGuardar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGuardarcActionPerformed(evt);
+                btnGuardar1ActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(115, Short.MAX_VALUE)
-                .addComponent(btnGuardarc)
-                .addGap(94, 94, 94)
-                .addComponent(btnCancelarc)
-                .addGap(140, 140, 140))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(labRUC1))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labRUC2)
-                            .addComponent(labRUC, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txtabreviatura, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
-                                .addComponent(txtnombre)
-                                .addComponent(jLabel2)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(jLabel2)
-                .addGap(20, 20, 20)
-                .addComponent(labRUC)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtnombre, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23)
-                .addComponent(labRUC1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtabreviatura, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(labRUC2)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(39, 293, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnGuardarc)
-                            .addComponent(btnCancelarc))
-                        .addGap(55, 55, 55))))
-        );
+        panMain.add(btnGuardar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 360, 90, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panMain, javax.swing.GroupLayout.DEFAULT_SIZE, 520, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panMain, javax.swing.GroupLayout.DEFAULT_SIZE, 445, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtnombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnombreActionPerformed
+    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtnombreActionPerformed
+    }//GEN-LAST:event_txtNombreActionPerformed
 
-    private void txtabreviaturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtabreviaturaActionPerformed
+    private void txtAbreviaturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAbreviaturaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtabreviaturaActionPerformed
+    }//GEN-LAST:event_txtAbreviaturaActionPerformed
 
-    private void btnCancelarcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarcActionPerformed
-        this.dispose();
-    }//GEN-LAST:event_btnCancelarcActionPerformed
-
-    private void btnGuardarcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarcActionPerformed
-        Categoria catego = new Categoria();
-        CategoriaDAO categoDAO = new CategoriaDAO();
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         
-        if(!txtnombre.getText().equals("") && !txtabreviatura.getText().equals("") && 
-                !txtdescripcion.getText().equals("") ){
+        this.dispose();
+    }//GEN-LAST:event_btnGuardarActionPerformed
+
+    private void btnGuardar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardar1ActionPerformed
+        
+        Categoria cate = new Categoria();
+        CategoriaDAO cateDAO = new CategoriaDAO();
+        
+        if(!txtAbreviatura.getText().equals("") && !txtNombre.getText().equals("") && 
+            !txtDescripcion.getText().equals("")){
             
-            catego.setNombre((String)txtnombre.getText());
-            catego.setAbreviatura((String)txtabreviatura.getText());
-            catego.setDescripcion((String)txtdescripcion.getText());
+            cate.setAbreviatura((String)txtAbreviatura.getText());
+            cate.setNombre((String)txtNombre.getText());
+            cate.setDescripcion((String)txtDescripcion.getText());
             
-            catego.setEstado(1);
-            catego.setFechaIngreso(LocalDateTime.now());
-            catego.setUsuarioIngreso(sysUser.getUsername());
+
+                        cate.setEstado(1);
+                        cate.setFechaIngreso(LocalDateTime.now());
+                        cate.setUsuarioIngreso(sysUser.getUsername());
+                            
+                        if(cateDAO.registrar(cate)){                           
+                            this.dispose();
+                            formCategorias.getCategorias();
+
+                        }else{
+                            JOptionPane.showMessageDialog(null, "No se guardaron los datos.");
+                        }
+                        
             
-            
-            
-            if (categoDAO.registrar(catego) ){
-                this.dispose();
-                formCategoriaAdd categos = new formCategoriaAdd();
-                
-                formCategorias.getDefaultLocale();
-            }
-            else{
-                JOptionPane.showMessageDialog(null, "No se guardaron los datos");
-            }
-            
+        }else{
+            JOptionPane.showMessageDialog(null, "Por favor, complete todos los campos del formulario.");
         }
-        else{
-            JOptionPane.showMessageDialog(null,"Por favor llene todos los campos");
-        }
-    }//GEN-LAST:event_btnGuardarcActionPerformed
+        
+    }//GEN-LAST:event_btnGuardar1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -229,31 +194,27 @@ public class formCategoriaAdd extends javax.swing.JFrame {
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-        try
-        {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels())
-            {
-                if ("Nimbus".equals(info.getName()))
-                {
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex)
-        {
+        } catch (ClassNotFoundException ex) {
             java.util.logging.Logger.getLogger(formCategoriaAdd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex)
-        {
+        } catch (InstantiationException ex) {
             java.util.logging.Logger.getLogger(formCategoriaAdd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex)
-        {
+        } catch (IllegalAccessException ex) {
             java.util.logging.Logger.getLogger(formCategoriaAdd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex)
-        {
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(formCategoriaAdd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-       
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -263,16 +224,16 @@ public class formCategoriaAdd extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCancelarc;
-    private javax.swing.JButton btnGuardarc;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton btnGuardar;
+    private javax.swing.JButton btnGuardar1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel labRUC;
-    private javax.swing.JLabel labRUC1;
-    private javax.swing.JLabel labRUC2;
-    private javax.swing.JTextField txtabreviatura;
-    private javax.swing.JTextArea txtdescripcion;
-    private javax.swing.JTextField txtnombre;
+    private javax.swing.JLabel labAbreviatura;
+    private javax.swing.JLabel labDescripción;
+    private javax.swing.JLabel labNombre;
+    private javax.swing.JLabel labTitle;
+    private javax.swing.JPanel panMain;
+    private javax.swing.JTextField txtAbreviatura;
+    private javax.swing.JTextArea txtDescripcion;
+    private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 }

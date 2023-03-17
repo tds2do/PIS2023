@@ -9,6 +9,7 @@ import Modelo.Cliente;
 import Modelo.DataBase;
 import Modelo.Producto;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -35,7 +36,7 @@ public class ProductoDAO implements IProducto{
                 + producto.getPorcentajeIva()+"','"
                 + producto.getFechaCaducidad()+"','"
                 + producto.getEstado()+"','"
-                + producto.getFechaIngreso()+"','"
+                + producto.getFechaIngreso().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))+"','"
                 + producto.getUsuarioIngreso()+"', "
                 + null+", "
                 + null+", "
@@ -55,10 +56,10 @@ public class ProductoDAO implements IProducto{
                 + producto.getDescripcion()+"',idCategoria='"
                 + producto.getIdCategoria()+"',idMedida='"
                 + producto.getIdMedida()+"',precio='"
-                + producto.getPrecio()+"',procentajeIva='"
+                + producto.getPrecio()+"',porcentajeIva='"
                 + producto.getPorcentajeIva()+"',fechaCaducidad='"
                 + producto.getFechaCaducidad()+"',fechaModifica='"
-                + producto.getFechaModifica()+"',usuarioModifica='"
+                + producto.getFechaModifica().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"))+"',usuarioModifica='"
                 + producto.getUsuarioModifica()+"' WHERE idProducto="
                 + producto.getIdProducto();
         
@@ -97,8 +98,8 @@ public class ProductoDAO implements IProducto{
             pro.setIdCategoria((int) row.get("idCategoria"));
             pro.setIdMedida((int) row.get("idMedida"));
             pro.setPrecio((float) row.get("precio"));  
-            pro.setPorcentajeIva((float) row.get("procentajeIva"));
-            pro.setFechaCaducidad((LocalDate) row.get("fechaCaducidad"));  
+            pro.setPorcentajeIva((int) row.get("porcentajeIva"));
+            pro.setFechaCaducidad(LocalDate.parse(row.get("fechaCaducidad").toString(),DateTimeFormatter.ofPattern("yyyy-MM-dd")));  
             productos.add(pro);
         }
         return productos;
@@ -107,7 +108,7 @@ public class ProductoDAO implements IProducto{
     @Override
     public Producto leer(int idProducto) {
 
-        String sql = "SELECT * FROM Producto WHERE idProducto="+String.valueOf(idProducto);
+        String sql = "SELECT * FROM Producto WHERE idProducto="+idProducto;
         List<Map> data = bd.execute(sql);
         Producto pro = new Producto();
         for(Map da : data){
@@ -118,8 +119,8 @@ public class ProductoDAO implements IProducto{
             pro.setIdCategoria((int) da.get("idCategoria"));
             pro.setIdMedida((int) da.get("idMedida"));
             pro.setPrecio((float) da.get("precio"));  
-            pro.setPorcentajeIva((float) da.get("procentajeIva"));
-            pro.setFechaCaducidad((LocalDate) da.get("fechaCaducidad")); 
+            pro.setPorcentajeIva((int) da.get("porcentajeIva"));
+            pro.setFechaCaducidad(LocalDate.parse(da.get("fechaCaducidad").toString(),DateTimeFormatter.ofPattern("yyyy-MM-dd"))); 
         }
         return pro;
         

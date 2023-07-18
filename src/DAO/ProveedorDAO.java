@@ -131,9 +131,35 @@ public class ProveedorDAO implements IProveedor{
         }
         return pro;
     }
+
+    @Override
+    public List<Proveedor> Buscar(String nombre) {
+        
+        String sql = "SELECT * FROM Proveedor WHERE primerNombre LIKE '%"+nombre+"%' or primerApellido LIKE '%"+nombre+"%'";
+        List<Map> rows = bd.execute(sql);
+        List<Proveedor> proveedores = new ArrayList();
+        for(Map row : rows){
+            Proveedor pro = new Proveedor();
+            pro.setIdProveedor((int) row.get("idProveedor"));
+            pro.setRuc((String) row.get("ruc"));
+            pro.setRazonSocial((String) row.get("razonSocial"));
+            pro.setPrimerNombre((String) row.get("primerNombre"));
+            pro.setSegundoNombre((String) row.get("segundoNombre"));
+            pro.setPrimerApellido((String) row.get("primerApellido"));
+            pro.setSegundoApellido((String) row.get("segundoApellido"));  
+            pro.setCorreo((String) row.get("correo"));
+            pro.setDireccion((String) row.get("direccion"));  
+            pro.setTelefono((String) row.get("telefono"));
+            pro.setCelular((String) row.get("celular"));              
+            proveedores.add(pro);
+        }
+        return proveedores;
+        
+        
+    }
     
 
-
+    
 
         
 

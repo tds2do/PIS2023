@@ -125,8 +125,28 @@ public class ProductoDAO implements IProducto{
         return pro;
         
     }
+
+    @Override
+    public List<Producto> buscar(String nombre) {
         
+        String sql = "SELECT * FROM Producto WHERE nombre LIKE '%"+nombre+"%'";
+        List<Map> rows = bd.execute(sql);
+        List<Producto> productos = new ArrayList();
+        for(Map row : rows){
+            Producto pro = new Producto();
+            pro.setIdProducto((int) row.get("idProducto"));
+            pro.setNombre((String) row.get("nombre"));
+            pro.setDescripcion((String) row.get("descripcion"));
+            pro.setPrecio((float) row.get("precio"));
+            pro.setPorcentajeIva((int) row.get("porcentajeIva")); 
+            productos.add(pro);
+        }
+        return productos;
         
+    }
+  
+
+         
     
 
 

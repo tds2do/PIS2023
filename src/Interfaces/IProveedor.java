@@ -17,4 +17,5 @@ public interface IProveedor {
     public Boolean eliminar(Proveedor proveedor);
     public List<Proveedor> listar();  
     public Proveedor leer(int idProveedor);
+    public List<Proveedor> Buscar(String nombre);
 }

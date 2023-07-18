@@ -18,6 +18,6 @@ public interface IProducto {
     public boolean eliminar(Producto producto);
     public List<Producto> listar();        
     public Producto leer(int idProducto);
-    
+    public List<Producto> buscar(String nombre);
     
 }

@@ -21,6 +21,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.List;
 import javax.swing.JOptionPane;
+import javax.swing.SpinnerNumberModel;
 
 /**
  *
@@ -35,14 +36,22 @@ public class formRegistroDetalleEntradaAdd extends javax.swing.JFrame {
     public formRegistroDetalleEntradaAdd() {
         initComponents();
         this.setLocationRelativeTo(null);
-        
+        getLimiteCantidad();
         
         
         
     }
 
 
-    
+    public void getLimiteCantidad(){
+        SpinnerNumberModel model = new SpinnerNumberModel();
+        model.setMaximum(15);
+        model.setMinimum(5);
+        model.setStepSize(1);
+        model.setValue(5);
+        txtCantidad.setModel(model);
+        
+    }
     
     
 
@@ -217,21 +226,23 @@ public class formRegistroDetalleEntradaAdd extends javax.swing.JFrame {
             }
         });
         panMain.add(txtSubtotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 130, 30));
+
+        txtCantidad.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                txtCantidadStateChanged(evt);
+            }
+        });
         panMain.add(txtCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 232, 120, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(panMain, javax.swing.GroupLayout.PREFERRED_SIZE, 498, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(panMain, javax.swing.GroupLayout.PREFERRED_SIZE, 498, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(panMain, javax.swing.GroupLayout.PREFERRED_SIZE, 565, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(panMain, javax.swing.GroupLayout.DEFAULT_SIZE, 505, Short.MAX_VALUE)
         );
 
         pack();
@@ -276,6 +287,17 @@ public class formRegistroDetalleEntradaAdd extends javax.swing.JFrame {
     private void txtSubtotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSubtotalActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtSubtotalActionPerformed
+
+    private void txtCantidadStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_txtCantidadStateChanged
+        
+        int cantidad = (int) txtCantidad.getValue();
+        String precio = txtPrecio.getText();
+        float nprecio = Float.parseFloat(precio);
+        float subtotal = nprecio * cantidad;
+        txtSubtotal.setText(String.valueOf(subtotal));
+        
+        
+    }//GEN-LAST:event_txtCantidadStateChanged
 
     /**
      * @param args the command line arguments
